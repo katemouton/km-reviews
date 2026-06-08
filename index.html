@@ -207,6 +207,17 @@
       });
     });
   }
+
+  // ---- auto-resize: tell the parent page how tall this widget is ----
+  function postHeight(){
+    var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+    if(window.parent){ window.parent.postMessage({ kmReviewsHeight: h }, '*'); }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  if('ResizeObserver' in window){ new ResizeObserver(postHeight).observe(document.body); }
+  setTimeout(postHeight, 400);
+  setTimeout(postHeight, 1500);
 </script>
 </body>
 </html>
