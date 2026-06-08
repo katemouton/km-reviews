@@ -10,123 +10,82 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --olive:#4B5320;
-    --olive-deep:#3A4019;
-    --gold:#B08D57;
-    --gold-soft:#C9A878;
-    --cream:#F4ECDD;
-    --charcoal:#1F2A44;
-    --warm-white:#FBFAF7;
-    --stone:#6B7280;
-    --card:#FFFFFF;
+    --olive:#4B5320; --olive-deep:#3A4019;
+    --gold:#B08D57; --gold-soft:#C9A878;
+    --cream:#F4ECDD; --charcoal:#1F2A44;
+    --stone:#6B7280; --card:#FFFFFF;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{background:transparent;}
+  html,body{background:var(--cream);overflow-x:hidden;}
   body{
     font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    color:var(--charcoal);
-    -webkit-font-smoothing:antialiased;
+    color:var(--charcoal);-webkit-font-smoothing:antialiased;
     background:
-      radial-gradient(1200px 500px at 50% -10%, rgba(176,141,87,0.10), transparent 60%),
-      linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
-    padding:64px 20px 72px;
-    min-height:100vh;
+      radial-gradient(1200px 480px at 50% -8%, rgba(176,141,87,0.12), transparent 60%),
+      var(--cream);
+    padding:62px 0 66px;
   }
-  .wrap{max-width:1180px;margin:0 auto;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
 
-  /* ---------- header ---------- */
-  .eyebrow{
-    text-align:center;letter-spacing:.28em;text-transform:uppercase;
-    font-size:.72rem;font-weight:600;color:var(--gold);margin-bottom:14px;
-  }
-  .eyebrow::before,.eyebrow::after{
-    content:"";display:inline-block;width:28px;height:1px;background:var(--gold);
-    vertical-align:middle;margin:0 12px 4px;opacity:.6;
-  }
-  h1{
-    font-family:'Playfair Display',Georgia,serif;font-weight:600;
-    text-align:center;color:var(--olive);
-    font-size:clamp(2rem,4.4vw,3rem);line-height:1.1;letter-spacing:-.01em;
-  }
-  .sub{
-    text-align:center;max-width:620px;margin:18px auto 0;color:var(--stone);
-    font-size:1.02rem;line-height:1.6;
-  }
-  .rating-strip{
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    margin:26px auto 54px;color:var(--charcoal);font-weight:600;font-size:.95rem;
-  }
+  /* header */
+  .eyebrow{text-align:center;letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;font-weight:600;color:var(--gold);margin-bottom:14px;}
+  .eyebrow::before,.eyebrow::after{content:"";display:inline-block;width:28px;height:1px;background:var(--gold);vertical-align:middle;margin:0 12px 4px;opacity:.6;}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;text-align:center;color:var(--olive);font-size:clamp(2rem,4.4vw,3rem);line-height:1.1;letter-spacing:-.01em;}
+  .sub{text-align:center;max-width:620px;margin:18px auto 0;color:var(--stone);font-size:1.02rem;line-height:1.6;}
+  .rating-strip{display:flex;align-items:center;justify-content:center;gap:10px;margin:26px auto 40px;color:var(--charcoal);font-weight:600;font-size:.95rem;}
   .rating-strip .stars{display:inline-flex;gap:3px;}
 
-  /* ---------- grid ---------- */
-  .grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
-    gap:30px;perspective:1200px;
+  /* ---------- carousel ---------- */
+  .carousel{position:relative;}
+  .track{
+    display:flex;gap:30px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    padding:18px 4px 26px;perspective:1200px;
+    scrollbar-width:none;-ms-overflow-style:none;
   }
-
-  /* ---------- card ---------- */
+  .track::-webkit-scrollbar{display:none;}
   .card{
-    position:relative;background:var(--card);border-radius:18px;
-    padding:34px 30px 30px;
+    flex:0 0 calc((100% - 60px)/3);scroll-snap-align:start;
+    position:relative;background:var(--card);border-radius:18px;padding:34px 30px 30px;
     border:1px solid rgba(75,83,32,0.08);
     box-shadow:0 1px 2px rgba(31,42,68,.04), 0 10px 24px rgba(31,42,68,.07);
-    transform-style:preserve-3d;
-    transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
-    will-change:transform;overflow:hidden;
+    transform-style:preserve-3d;transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+    will-change:transform;
   }
-  .card::before{ /* top gold accent bar */
-    content:"";position:absolute;top:0;left:0;right:0;height:4px;
-    background:linear-gradient(90deg,var(--gold),var(--gold-soft));
-    transform:translateZ(1px);
-  }
-  .quote-mark{
-    font-family:'Playfair Display',serif;font-size:4.6rem;line-height:.6;
-    color:var(--cream);position:absolute;top:24px;right:24px;
-    transform:translateZ(20px);pointer-events:none;user-select:none;
-  }
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:18px 18px 0 0;background:linear-gradient(90deg,var(--gold),var(--gold-soft));transform:translateZ(1px);}
+  .quote-mark{font-family:'Playfair Display',serif;font-size:4.6rem;line-height:.6;color:var(--cream);position:absolute;top:24px;right:24px;transform:translateZ(20px);pointer-events:none;user-select:none;}
   .stars{display:flex;gap:4px;margin-bottom:16px;transform:translateZ(40px);}
   .stars svg{width:19px;height:19px;}
-  .review{
-    font-size:1.01rem;line-height:1.62;color:#36405a;
-    transform:translateZ(28px);position:relative;
-  }
-  .client{
-    display:flex;align-items:center;gap:12px;margin-top:24px;
-    padding-top:20px;border-top:1px solid rgba(31,42,68,.08);
-    transform:translateZ(34px);
-  }
-  .avatar{
-    width:46px;height:46px;border-radius:50%;flex:0 0 auto;
-    display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(135deg,var(--olive),var(--olive-deep));
-    color:#fff;font-family:'Playfair Display',serif;font-weight:600;font-size:1.1rem;
-    box-shadow:0 4px 10px rgba(75,83,32,.30);
-  }
+  .review{font-size:1.0rem;line-height:1.62;color:#36405a;transform:translateZ(28px);}
+  .client{display:flex;align-items:center;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(31,42,68,.08);transform:translateZ(34px);}
+  .avatar{width:46px;height:46px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--olive),var(--olive-deep));color:#fff;font-family:'Playfair Display',serif;font-weight:600;font-size:1.1rem;box-shadow:0 4px 10px rgba(75,83,32,.30);}
   .client .name{font-weight:600;color:var(--olive);font-size:1rem;line-height:1.1;}
   .client .tag{font-size:.8rem;color:var(--stone);margin-top:3px;display:flex;align-items:center;gap:6px;}
   .client .tag .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;}
-  /* glare */
-  .glare{
-    position:absolute;inset:0;border-radius:18px;pointer-events:none;opacity:0;
-    background:radial-gradient(circle at var(--mx,50%) var(--my,0%), rgba(255,255,255,.55), transparent 45%);
-    transition:opacity .25s ease;mix-blend-mode:soft-light;transform:translateZ(60px);
-  }
+  .glare{position:absolute;inset:0;border-radius:18px;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0%), rgba(255,255,255,.55), transparent 45%);transition:opacity .25s ease;mix-blend-mode:soft-light;transform:translateZ(60px);}
   .card:hover{box-shadow:0 18px 50px rgba(31,42,68,.16);}
   .card:hover .glare{opacity:1;}
 
-  /* footer cta */
-  .foot{text-align:center;margin-top:56px;}
-  .foot a{
-    display:inline-block;text-decoration:none;font-weight:600;font-size:.98rem;
-    color:#fff;background:var(--olive);padding:15px 34px;border-radius:10px;
-    box-shadow:0 8px 22px rgba(75,83,32,.28);transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  /* nav arrows */
+  .nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:22px;}
+  .nav button{
+    width:50px;height:50px;border-radius:50%;border:0;cursor:pointer;
+    background:var(--olive);color:#fff;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(75,83,32,.30);transition:transform .18s ease, background .18s ease, opacity .18s ease;
   }
+  .nav button:hover{background:var(--olive-deep);transform:translateY(-2px);}
+  .nav button:disabled{opacity:.35;cursor:default;transform:none;}
+  .nav button svg{width:20px;height:20px;}
+  .nav .dots{display:flex;gap:7px;align-items:center;}
+  .nav .dots span{width:8px;height:8px;border-radius:50%;background:rgba(75,83,32,.25);transition:background .2s ease, width .2s ease;}
+  .nav .dots span.active{background:var(--gold);width:22px;border-radius:5px;}
+
+  .foot{text-align:center;margin-top:40px;}
+  .foot a{display:inline-block;text-decoration:none;font-weight:600;font-size:.98rem;color:#fff;background:var(--olive);padding:15px 34px;border-radius:10px;box-shadow:0 8px 22px rgba(75,83,32,.28);transition:transform .2s ease, box-shadow .2s ease, background .2s ease;}
   .foot a:hover{background:var(--olive-deep);transform:translateY(-2px);box-shadow:0 12px 28px rgba(75,83,32,.36);}
 
-  @media (max-width:520px){ body{padding:44px 14px 54px;} .card{padding:30px 24px 26px;} }
-  @media (prefers-reduced-motion:reduce){
-    .card{transition:box-shadow .25s ease !important;transform:none !important;}
-  }
+  @media (max-width:1000px){ .card{flex:0 0 calc((100% - 30px)/2);} }
+  @media (max-width:680px){ .card{flex:0 0 88%;} body{padding:46px 0 52px;} .wrap{padding:0 16px;} }
+  @media (prefers-reduced-motion:reduce){ .card{transition:box-shadow .25s ease !important;transform:none !important;} .track{scroll-behavior:auto;} }
 </style>
 </head>
 <body>
@@ -134,42 +93,35 @@
     <p class="eyebrow">Client Experiences</p>
     <h1>Real Results. Real Relationships.</h1>
     <p class="sub">Buying or selling a home is a big moment — and who guides you through it matters. Here is what clients across Lafayette, Acadiana &amp; Baton Rouge have to say.</p>
-    <div class="rating-strip">
-      <span class="stars" id="strip-stars"></span>
-      <span>5.0 &middot; Trusted by clients across South Louisiana</span>
+    <div class="rating-strip"><span class="stars" id="strip-stars"></span><span>5.0 &middot; Trusted by clients across South Louisiana</span></div>
+
+    <div class="carousel">
+      <div class="track" id="track"></div>
+      <div class="nav">
+        <button id="prev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="dots" id="dots"></div>
+        <button id="next" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
     </div>
 
-    <div class="grid" id="grid"></div>
-
-    <div class="foot">
-      <a href="https://thekmcollectiveteam.com/contact" target="_blank" rel="noopener">Work With The KM Collective Team</a>
-    </div>
+    <div class="foot"><a href="https://thekmcollectiveteam.com/contact" target="_blank" rel="noopener">Work With The KM Collective Team</a></div>
   </div>
 
 <script>
   var reviews = [
-    { name:"Victoria R.", initials:"V", tag:"Buyer & Seller Client",
-      text:"Kate was an amazing agent all the way around! She made the experience painless and exciting. There’s no need to worry when you hire her — she’s responsive, reliable, and has so much expertise. Whether you’re buying or selling, she’s who you need." },
-    { name:"Kristi N.", initials:"K", tag:"Home Buyer",
-      text:"Kate was awesome! She was very knowledgeable, so the whole process went quickly and smoothly. She negotiated everything I wanted and was incredibly responsive. The only realtor I will ever use — and the one I recommend to everyone." },
-    { name:"Julia E.", initials:"J", tag:"First-Time Buyer",
-      text:"Kate helped me find my first house, and I couldn’t be happier with the experience. She made the entire process feel easy and stress-free. I highly recommend her to anyone looking for a realtor they can truly trust." },
-    { name:"Kelsey M.", initials:"K", tag:"Home Buyer",
-      text:"We had the absolute best experience working with Alexis to buy our home! From the very first conversation she was kind, patient, and incredibly knowledgeable. We always felt like we had someone in our corner." },
-    { name:"Dillon M.", initials:"D", tag:"Home Buyer",
-      text:"Alexis was absolutely wonderful to work with! She always responds quickly, guided us through every step of the process, and made everything feel easy and stress-free. Highly recommend." },
-    { name:"Happy Client", initials:"KM", tag:"The KM Collective Standard",
-      text:"From first call to closing table, the team brought clarity, strategy, and constant communication. No guessing, no loose ends — just a process that actually works and people who genuinely care." }
+    { name:"Victoria R.", initials:"V", tag:"Buyer & Seller Client", text:"Kate was an amazing agent all the way around! She made the experience painless and exciting. There’s no need to worry when you hire her — she’s responsive, reliable, and has so much expertise. Whether you’re buying or selling, she’s who you need." },
+    { name:"Kristi N.", initials:"K", tag:"Home Buyer", text:"Kate was awesome! She was very knowledgeable, so the whole process went quickly and smoothly. She negotiated everything I wanted and was incredibly responsive. The only realtor I will ever use — and the one I recommend to everyone." },
+    { name:"Julia E.", initials:"J", tag:"First-Time Buyer", text:"Kate helped me find my first house, and I couldn’t be happier with the experience. She made the entire process feel easy and stress-free. I highly recommend her to anyone looking for a realtor they can truly trust." },
+    { name:"Kelsey M.", initials:"K", tag:"Home Buyer", text:"We had the absolute best experience working with Alexis to buy our home! From the very first conversation she was kind, patient, and incredibly knowledgeable. We always felt like we had someone in our corner." },
+    { name:"Dillon M.", initials:"D", tag:"Home Buyer", text:"Alexis was absolutely wonderful to work with! She always responds quickly, guided us through every step of the process, and made everything feel easy and stress-free. Highly recommend." },
+    { name:"Happy Client", initials:"KM", tag:"The KM Collective Standard", text:"From first call to closing table, the team brought clarity, strategy, and constant communication. No guessing, no loose ends — just a process that actually works and people who genuinely care." }
   ];
 
-  function starSVG(){
-    return '<svg viewBox="0 0 24 24" fill="#B08D57" aria-hidden="true"><path d="M12 2.6l2.93 5.94 6.56.95-4.75 4.62 1.12 6.53L12 18.9l-5.86 3.08 1.12-6.53L2.5 10.83l6.56-.95L12 2.6z"/></svg>';
-  }
+  function starSVG(){ return '<svg viewBox="0 0 24 24" fill="#B08D57" aria-hidden="true"><path d="M12 2.6l2.93 5.94 6.56.95-4.75 4.62 1.12 6.53L12 18.9l-5.86 3.08 1.12-6.53L2.5 10.83l6.56-.95L12 2.6z"/></svg>'; }
   function stars(n){ var s=""; for(var i=0;i<n;i++){ s+=starSVG(); } return s; }
-
   document.getElementById('strip-stars').innerHTML = stars(5);
 
-  var grid = document.getElementById('grid');
+  var track = document.getElementById('track');
   reviews.forEach(function(r){
     var card = document.createElement('div');
     card.className = 'card';
@@ -177,47 +129,63 @@
       '<span class="quote-mark">&ldquo;</span>' +
       '<div class="stars">'+stars(5)+'</div>' +
       '<p class="review">'+r.text+'</p>' +
-      '<div class="client">' +
-        '<div class="avatar">'+r.initials+'</div>' +
-        '<div><div class="name">'+r.name+'</div>' +
-        '<div class="tag"><span class="dot"></span>'+r.tag+'</div></div>' +
-      '</div>' +
+      '<div class="client"><div class="avatar">'+r.initials+'</div>' +
+      '<div><div class="name">'+r.name+'</div><div class="tag"><span class="dot"></span>'+r.tag+'</div></div></div>' +
       '<div class="glare"></div>';
-    grid.appendChild(card);
+    track.appendChild(card);
   });
+
+  // ---- carousel controls ----
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  var dotsWrap = document.getElementById('dots');
+  function step(){ var c = track.querySelector('.card'); if(!c) return 320; return c.offsetWidth + 30; }
+  function visibleCount(){ return Math.max(1, Math.round(track.clientWidth / step())); }
+
+  // dots = number of "pages"
+  function buildDots(){
+    dotsWrap.innerHTML='';
+    var pages = Math.max(1, reviews.length - visibleCount() + 1);
+    for(var i=0;i<pages;i++){ var s=document.createElement('span'); dotsWrap.appendChild(s); }
+    updateUI();
+  }
+  function curIndex(){ return Math.round(track.scrollLeft / step()); }
+  function updateUI(){
+    var idx = curIndex();
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= (track.scrollWidth - track.clientWidth - 2);
+    var spans = dotsWrap.querySelectorAll('span');
+    spans.forEach(function(sp,i){ sp.classList.toggle('active', i===idx); });
+  }
+  prev.addEventListener('click', function(){ track.scrollBy({left:-step(), behavior:'smooth'}); });
+  next.addEventListener('click', function(){ track.scrollBy({left:step(), behavior:'smooth'}); });
+  track.addEventListener('scroll', function(){ window.requestAnimationFrame(updateUI); });
+  window.addEventListener('resize', function(){ buildDots(); postHeight(); });
+  buildDots();
 
   // ---- 3D tilt (skip on touch / reduced motion) ----
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var coarse = window.matchMedia('(pointer: coarse)').matches;
   if(!reduce && !coarse){
-    var MAX = 9; // degrees
+    var MAX = 8;
     document.querySelectorAll('.card').forEach(function(card){
       var glare = card.querySelector('.glare');
       card.addEventListener('pointermove', function(e){
         var rect = card.getBoundingClientRect();
         var px = (e.clientX - rect.left) / rect.width;
         var py = (e.clientY - rect.top) / rect.height;
-        var ry = (px - 0.5) * (MAX * 2);
-        var rx = (0.5 - py) * (MAX * 2);
-        card.style.transform = 'perspective(1000px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateZ(8px) scale(1.02)';
-        if(glare){ glare.style.setProperty('--mx', (px*100)+'%'); glare.style.setProperty('--my', (py*100)+'%'); }
+        card.style.transform = 'perspective(1000px) rotateX('+((0.5-py)*MAX*2)+'deg) rotateY('+((px-0.5)*MAX*2)+'deg) translateZ(6px) scale(1.02)';
+        if(glare){ glare.style.setProperty('--mx',(px*100)+'%'); glare.style.setProperty('--my',(py*100)+'%'); }
       });
-      card.addEventListener('pointerleave', function(){
-        card.style.transform = '';
-      });
+      card.addEventListener('pointerleave', function(){ card.style.transform=''; });
     });
   }
 
-  // ---- auto-resize: tell the parent page how tall this widget is ----
-  function postHeight(){
-    var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
-    if(window.parent){ window.parent.postMessage({ kmReviewsHeight: h }, '*'); }
-  }
+  // ---- auto-resize ----
+  function postHeight(){ var h=Math.ceil(document.documentElement.getBoundingClientRect().height); if(window.parent){ window.parent.postMessage({kmReviewsHeight:h},'*'); } }
   window.addEventListener('load', postHeight);
-  window.addEventListener('resize', postHeight);
   if('ResizeObserver' in window){ new ResizeObserver(postHeight).observe(document.body); }
-  setTimeout(postHeight, 400);
-  setTimeout(postHeight, 1500);
+  setTimeout(postHeight,400); setTimeout(postHeight,1500);
 </script>
 </body>
 </html>
