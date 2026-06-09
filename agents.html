@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The KM Collective Team — Our Agents</title>
+<meta name="description" content="Meet the agents of The KM Collective Team — Lafayette, Acadiana & Baton Rouge." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --olive:#4B5320; --olive-deep:#343A17; --olive-mid:#5A6326;
+    --gold:#B08D57; --gold-soft:#CDA877; --gold-bright:#DCC08C;
+    --cream:#F4ECDD; --warm-white:#FBFAF7; --charcoal:#1F2A44; --stone:#6B7280;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--cream);overflow-x:hidden;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--charcoal);
+    -webkit-font-smoothing:antialiased;
+    background:radial-gradient(1100px 460px at 50% -12%, rgba(176,141,87,0.14), transparent 60%), var(--cream);
+    padding:60px 0 66px;
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .eyebrow{text-align:center;letter-spacing:.26em;text-transform:uppercase;font-size:.72rem;font-weight:600;color:var(--gold);margin-bottom:12px;}
+  .eyebrow::before,.eyebrow::after{content:"";display:inline-block;width:26px;height:1px;background:var(--gold);vertical-align:middle;margin:0 12px 4px;opacity:.6;}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:600;text-align:center;color:var(--olive);font-size:clamp(1.8rem,3.6vw,2.5rem);line-height:1.12;letter-spacing:-.01em;margin-bottom:46px;}
+
+  .row{display:flex;justify-content:center;flex-wrap:wrap;gap:46px 52px;perspective:1300px;}
+
+  .agent{
+    display:flex;flex-direction:column;align-items:center;text-decoration:none;width:200px;
+    transform-style:preserve-3d;transition:transform .25s cubic-bezier(.2,.8,.2,1);will-change:transform;
+  }
+  .ring{
+    position:relative;width:180px;height:180px;border-radius:50%;padding:6px;
+    background:linear-gradient(145deg,var(--gold-bright),var(--gold) 55%,var(--olive-mid));
+    box-shadow:0 2px 6px rgba(31,42,68,.10), 0 18px 38px rgba(52,58,23,.26);
+    transition:box-shadow .25s ease;transform:translateZ(0);
+  }
+  .ring::after{ /* subtle inner cream gap */
+    content:"";position:absolute;inset:3px;border-radius:50%;border:3px solid var(--cream);pointer-events:none;transform:translateZ(1px);
+  }
+  .photo{
+    width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center top;display:block;
+    background:var(--warm-white);transform:translateZ(40px);
+  }
+  .glare{
+    position:absolute;inset:6px;border-radius:50%;pointer-events:none;opacity:0;
+    background:radial-gradient(circle at var(--mx,50%) var(--my,15%), rgba(255,255,255,.55), transparent 45%);
+    transition:opacity .25s ease;transform:translateZ(60px);
+  }
+  .name{font-family:'Playfair Display',serif;font-weight:600;font-size:1.18rem;color:var(--olive);margin-top:20px;text-align:center;transform:translateZ(26px);}
+  .title{font-size:.84rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:5px;text-align:center;transform:translateZ(18px);}
+
+  .agent:hover .ring{box-shadow:0 4px 10px rgba(31,42,68,.14), 0 30px 60px rgba(52,58,23,.34);}
+  .agent:hover .glare{opacity:1;}
+
+  @media (max-width:560px){
+    body{padding:44px 0 50px;}
+    .wrap{padding:0 18px;}
+    .row{gap:34px 28px;}
+    .agent{width:138px;}
+    .ring{width:128px;height:128px;}
+    .name{font-size:1.04rem;margin-top:15px;}
+  }
+  @media (prefers-reduced-motion:reduce){ .agent{transition:none !important;transform:none !important;} }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Meet the Team</p>
+    <h1>Our Agents</h1>
+
+    <div class="row" id="row">
+      <a class="agent" href="https://thekmcollectiveteam.com/agents/Katherine-Mouton/8925514" target="_top">
+        <span class="ring">
+          <img class="photo" loading="lazy" alt="Katherine Mouton, Team Owner and Realtor at The KM Collective Team"
+               src="https://cdn.lofty.com/image/fs/user-info/202615/16/original_67ff8cf7-2916-414e-ae08-1731f5e525a6.png" />
+          <span class="glare"></span>
+        </span>
+        <span class="name">Katherine Mouton</span>
+        <span class="title">Team Owner + Realtor</span>
+      </a>
+
+      <a class="agent" href="https://thekmcollectiveteam.com/agents/Alexis-Lacomb/8925516" target="_top">
+        <span class="ring">
+          <img class="photo" loading="lazy" alt="Alexis Lacomb, Realtor at The KM Collective Team"
+               src="https://cdn.lofty.com/image/fs/user-info/202615/16/original_84c05e8d-c6d4-4f19-8452-2b88f6b98212.jpeg" />
+          <span class="glare"></span>
+        </span>
+        <span class="name">Alexis Lacomb</span>
+        <span class="title">Realtor</span>
+      </a>
+
+      <a class="agent" href="https://thekmcollectiveteam.com/agents/Haylee-Meaux/8925518" target="_top">
+        <span class="ring">
+          <img class="photo" loading="lazy" alt="Haylee Meaux, Realtor at The KM Collective Team"
+               src="https://cdn.lofty.com/image/fs/web/202632/16/2a4c6b2d-f59e-4f64-9bbf-e1774f9f6705/original_17277d6c-0536-4d6c-82ef-cdb4ea6e56b6.jpeg" />
+          <span class="glare"></span>
+        </span>
+        <span class="name">Haylee Meaux</span>
+        <span class="title">Realtor</span>
+      </a>
+
+      <a class="agent" href="https://thekmcollectiveteam.com/agents/Madeline-Coyle/8925519" target="_top">
+        <span class="ring">
+          <img class="photo" loading="lazy" alt="Madeline Coyle, Realtor at The KM Collective Team"
+               src="https://cdn.lofty.com/image/fs/web/2026521/17/33d12a0c-908c-4654-9257-2399ce4e0685/original_1bca39f1-5608-4110-ba43-d97cac790609.jpeg" />
+          <span class="glare"></span>
+        </span>
+        <span class="name">Madeline Coyle</span>
+        <span class="title">Realtor</span>
+      </a>
+    </div>
+  </div>
+
+<script>
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+  if(!reduce && !coarse){
+    var MAX = 14;
+    document.querySelectorAll('.agent').forEach(function(card){
+      var glare = card.querySelector('.glare');
+      card.addEventListener('pointermove', function(e){
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left)/r.width, py = (e.clientY - r.top)/r.height;
+        card.style.transform = 'perspective(900px) rotateX('+((0.5-py)*MAX)+'deg) rotateY('+((px-0.5)*MAX)+'deg) translateZ(12px) scale(1.04)';
+        if(glare){ glare.style.setProperty('--mx',(px*100)+'%'); glare.style.setProperty('--my',(py*100)+'%'); }
+      });
+      card.addEventListener('pointerleave', function(){ card.style.transform=''; });
+    });
+  }
+  function postHeight(){ var h=Math.ceil(document.documentElement.getBoundingClientRect().height); if(window.parent){ window.parent.postMessage({kmAgentsHeight:h},'*'); } }
+  window.addEventListener('load', postHeight);
+  if('ResizeObserver' in window){ new ResizeObserver(postHeight).observe(document.body); }
+  setTimeout(postHeight,400); setTimeout(postHeight,1500);
+</script>
+</body>
+</html>
