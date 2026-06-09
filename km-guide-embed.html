@@ -1,0 +1,172 @@
+<div id="km-guide-root">
+  <div class="km-guide-cta">
+    <button type="button" class="km-guide-btn" id="kmOpenGuide">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      Download the Free Buyer&rsquo;s Guide
+    </button>
+    <p class="km-guide-note">Free PDF &middot; Sent straight to your inbox</p>
+  </div>
+
+  <div class="km-overlay" id="kmOverlay" aria-hidden="true">
+    <div class="km-modal" role="dialog" aria-modal="true" aria-labelledby="kmTitle">
+      <button type="button" class="km-close" id="kmClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <div id="kmFormWrap">
+        <p class="km-lockup">The KM Collective Team</p>
+        <p class="km-eyebrow">Free Download</p>
+        <h2 class="km-title" id="kmTitle">Your Buyer&rsquo;s Guide</h2>
+        <p class="km-sub">Tell us where to send it and your free Buying 101 guide is yours &mdash; the road map, budgeting tips, and mistakes to avoid.</p>
+
+        <form id="kmForm" novalidate>
+          <div class="km-field">
+            <label for="kmName">Name</label>
+            <input type="text" id="kmName" autocomplete="name" placeholder="First &amp; last name" required />
+          </div>
+          <div class="km-field">
+            <label for="kmEmail">Email</label>
+            <input type="email" id="kmEmail" autocomplete="email" placeholder="you@email.com" required />
+          </div>
+          <div class="km-field">
+            <label for="kmPhone">Phone</label>
+            <input type="tel" id="kmPhone" autocomplete="tel" placeholder="(337) 000-0000" required />
+          </div>
+          <button type="submit" class="km-submit" id="kmSubmit">Send Me the Guide</button>
+          <p class="km-fine">By submitting, you agree to be contacted by The KM Collective Team about your home search. No spam, ever.</p>
+        </form>
+      </div>
+
+      <div id="kmSuccessWrap" style="display:none;">
+        <div class="km-check"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h2 class="km-title">Check your download!</h2>
+        <p class="km-sub">Your Buyer&rsquo;s Guide is on its way. We&rsquo;ll be in touch soon &mdash; reach out anytime with questions.</p>
+        <button type="button" class="km-submit" id="kmDone" style="max-width:200px;margin:6px auto 0;">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #km-guide-root{--olive:#4B5320;--olive-deep:#343A17;--olive-mid:#5A6326;--gold:#B08D57;--gold-bright:#DCC08C;--cream:#F4ECDD;--warm-white:#FBFAF7;--charcoal:#1F2A44;--stone:#6B7280;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  /* hide Lofty's native guide section but keep it in the DOM so we can drive it */
+  .md-guide{position:absolute !important;left:-99999px !important;top:0 !important;width:1px !important;height:1px !important;overflow:hidden !important;opacity:0 !important;pointer-events:none !important;}
+  #km-guide-root *{box-sizing:border-box;}
+  .km-guide-cta{text-align:center;padding:6px 16px 4px;}
+  .km-guide-btn{display:inline-flex;align-items:center;gap:11px;cursor:pointer;border:none;font-family:inherit;font-weight:600;font-size:1.06rem;letter-spacing:.01em;color:#fff;background:var(--olive);padding:17px 38px;border-radius:50px;box-shadow:0 10px 26px rgba(52,58,23,.28);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;}
+  .km-guide-btn:hover{background:var(--olive-deep);transform:translateY(-2px);box-shadow:0 14px 32px rgba(52,58,23,.34);}
+  .km-guide-btn svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .km-guide-note{margin-top:12px;font-size:.92rem;color:var(--stone);}
+
+  .km-overlay{position:fixed;inset:0;background:rgba(28,32,18,.55);display:none;align-items:center;justify-content:center;padding:24px;z-index:2147483000;}
+  .km-overlay.open{display:flex;animation:kmFade .25s ease;}
+  @keyframes kmFade{from{opacity:0;}to{opacity:1;}}
+  .km-modal{position:relative;width:100%;max-width:440px;background:var(--warm-white);border-radius:22px;padding:38px 36px 32px;box-shadow:0 30px 80px rgba(20,24,12,.45);border:1px solid rgba(176,141,87,.35);animation:kmPop .28s cubic-bezier(.2,.8,.2,1);}
+  @keyframes kmPop{from{opacity:0;transform:translateY(16px) scale(.97);}to{opacity:1;transform:none;}}
+  .km-modal::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;border-radius:22px 22px 0 0;background:linear-gradient(90deg,var(--gold-bright),var(--gold) 50%,var(--olive-mid));}
+  .km-close{position:absolute;top:16px;right:18px;width:34px;height:34px;border:none;background:transparent;cursor:pointer;color:var(--stone);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+  .km-close:hover{background:rgba(0,0,0,.06);color:var(--charcoal);}
+  .km-close svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;}
+  .km-lockup{text-align:center;letter-spacing:.22em;text-transform:uppercase;font-size:.66rem;font-weight:600;color:var(--gold);margin:0 0 6px;}
+  .km-eyebrow{text-align:center;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;font-weight:600;color:var(--gold);margin:0 0 10px;}
+  .km-title{font-family:'Playfair Display',Georgia,serif;font-weight:600;text-align:center;color:var(--olive);font-size:1.74rem;line-height:1.15;margin:0;}
+  .km-sub{text-align:center;color:var(--stone);font-size:.98rem;line-height:1.5;margin:10px auto 24px;max-width:330px;}
+  .km-field{margin-bottom:14px;}
+  .km-field label{display:block;font-size:.8rem;font-weight:600;color:var(--olive-deep);margin-bottom:5px;letter-spacing:.02em;text-align:left;}
+  .km-field input{width:100%;font-family:inherit;font-size:1rem;color:var(--charcoal);padding:13px 15px;border:1.5px solid rgba(75,83,32,.22);border-radius:11px;background:#fff;transition:border .15s,box-shadow .15s;}
+  .km-field input:focus{outline:none;border-color:var(--olive);box-shadow:0 0 0 3px rgba(75,83,32,.12);}
+  .km-field input::placeholder{color:#b3b0a4;}
+  .km-submit{width:100%;margin-top:8px;cursor:pointer;border:none;color:#fff;background:var(--olive);font-family:inherit;font-weight:600;font-size:1.05rem;padding:15px;border-radius:12px;box-shadow:0 8px 22px rgba(52,58,23,.26);transition:background .2s,transform .15s;}
+  .km-submit:hover{background:var(--olive-deep);transform:translateY(-1px);}
+  .km-submit[disabled]{opacity:.7;cursor:default;transform:none;}
+  .km-fine{text-align:center;font-size:.74rem;color:var(--stone);line-height:1.45;margin-top:14px;}
+  .km-check{width:64px;height:64px;border-radius:50%;background:rgba(75,83,32,.12);display:flex;align-items:center;justify-content:center;margin:6px auto 16px;}
+  .km-check svg{width:34px;height:34px;stroke:var(--olive);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+
+<script>
+(function(){
+  var PDF_URL="https://katemouton.github.io/km-reviews/The%20Buyers%20Guide.pdf";
+  var root=document.getElementById('km-guide-root');
+  var overlay=document.getElementById('kmOverlay');
+  var formWrap=document.getElementById('kmFormWrap');
+  var successWrap=document.getElementById('kmSuccessWrap');
+  var submitBtn=document.getElementById('kmSubmit');
+
+  function openModal(){overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');formWrap.style.display='block';successWrap.style.display='none';submitBtn.disabled=false;submitBtn.textContent='Send Me the Guide';}
+  function closeModal(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');}
+  function showSuccess(){formWrap.style.display='none';successWrap.style.display='block';}
+
+  document.getElementById('kmOpenGuide').addEventListener('click',openModal);
+  document.getElementById('kmClose').addEventListener('click',closeModal);
+  document.getElementById('kmDone').addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))closeModal();});
+
+  function setNativeValue(el,value){
+    try{var proto=el.tagName==='TEXTAREA'?window.HTMLTextAreaElement.prototype:window.HTMLInputElement.prototype;
+      var setter=Object.getOwnPropertyDescriptor(proto,'value').set;setter.call(el,value);}catch(e){el.value=value;}
+    ['input','change','blur','keyup'].forEach(function(ev){el.dispatchEvent(new Event(ev,{bubbles:true}));});
+  }
+  function visible(el){if(!el)return false;var r=el.getBoundingClientRect();return r.width>0&&r.height>0;}
+
+  function findNativePopup(){
+    var dialogs=[].slice.call(document.querySelectorAll('.el-dialog,.lof-dialog,.popup,[class*=dialog],[class*=popup],[class*=modal]'));
+    for(var i=0;i<dialogs.length;i++){
+      var d=dialogs[i];
+      if(root.contains(d))continue;
+      if(!visible(d))continue;
+      var ins=d.querySelectorAll('input');
+      var emailish=d.querySelector('input[type=email],input[name*=mail i],input[placeholder*=mail i]');
+      if(ins.length>=2&&emailish)return d;
+    }
+    return null;
+  }
+  function fillNative(pop,name,email,phone){
+    var email_i=pop.querySelector('input[type=email],input[name*=mail i],input[placeholder*=mail i]');
+    var phone_i=pop.querySelector('input[type=tel],input[name*=phone i],input[name*=mobile i],input[placeholder*=phone i]');
+    var texts=[].slice.call(pop.querySelectorAll('input[type=text],input:not([type])'));
+    var name_i=pop.querySelector('input[name*=name i],input[placeholder*=name i]')||texts.find(function(t){return t!==email_i&&t!==phone_i;});
+    if(name_i)setNativeValue(name_i,name);
+    if(email_i)setNativeValue(email_i,email);
+    if(phone_i)setNativeValue(phone_i,phone);
+    var sb=[].slice.call(pop.querySelectorAll('button,[class*=btn],[type=submit]')).filter(function(b){
+      var t=(b.textContent||'').trim();return /submit|get|download|send|guide|continue|sign/i.test(t)||b.type==='submit';
+    });
+    var btn=sb[0]||pop.querySelector('button');
+    return btn;
+  }
+  function deliverPdf(){try{window.open(PDF_URL,'_blank');}catch(e){}}
+
+  document.getElementById('kmForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('kmName').value.trim();
+    var email=document.getElementById('kmEmail').value.trim();
+    var phone=document.getElementById('kmPhone').value.trim();
+    if(!name||!email||!phone)return;
+    submitBtn.disabled=true;submitBtn.textContent='Sending…';
+
+    var mask=document.querySelector('.md-guide a.mask')||document.querySelector('.md-guide .cover a')||document.querySelector('.md-guide .item');
+    var captured=false;
+    if(mask){try{mask.click();}catch(e){}}
+    var tries=0;
+    var iv=setInterval(function(){
+      tries++;
+      var pop=findNativePopup();
+      if(pop){
+        clearInterval(iv);
+        var btn=fillNative(pop,name,email,phone);
+        setTimeout(function(){ if(btn){try{btn.click();captured=true;}catch(e){}}
+          deliverPdf();
+          try{var cl=pop.querySelector('.el-dialog__close,[class*=close]');if(cl)cl.click();}catch(e){}
+          showSuccess();
+        },350);
+      } else if(tries>=24){
+        clearInterval(iv);
+        deliverPdf();
+        showSuccess();
+      }
+    },140);
+  });
+})();
+</script>
