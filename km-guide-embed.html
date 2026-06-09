@@ -1,12 +1,4 @@
 <div id="km-guide-root">
-  <div class="km-guide-cta">
-    <button type="button" class="km-guide-btn" id="kmOpenGuide">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-      Download the Free Buyer&rsquo;s Guide
-    </button>
-    <p class="km-guide-note">Free PDF &middot; Instant download</p>
-  </div>
-
   <div class="km-overlay" id="kmOverlay" aria-hidden="true">
     <div class="km-modal" role="dialog" aria-modal="true" aria-labelledby="kmTitle">
       <button type="button" class="km-close" id="kmClose" aria-label="Close">
@@ -111,7 +103,7 @@
   function closeModal(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');}
   function showSuccess(){formWrap.style.display='none';successWrap.style.display='block';}
 
-  document.getElementById('kmOpenGuide').addEventListener('click',openModal);
+  window.addEventListener('message',function(e){ if(e&&e.data&&e.data.kmOpenGuide){ openModal(); } });
   document.getElementById('kmClose').addEventListener('click',closeModal);
   document.getElementById('kmDone').addEventListener('click',closeModal);
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});

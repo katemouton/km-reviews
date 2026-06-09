@@ -59,12 +59,14 @@
   .step-body p{font-size:.98rem;line-height:1.55;color:var(--stone);}
 
   /* ---------- CTA ---------- */
-  .cta{text-align:center;margin-top:48px;}
-  .cta a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:1.02rem;color:#fff;
-    background:linear-gradient(150deg,var(--olive-mid),var(--olive) 60%,var(--olive-deep));
-    padding:16px 30px;border-radius:13px;box-shadow:0 12px 26px rgba(52,58,23,.28);transition:transform .18s ease, box-shadow .18s ease;}
-  .cta a:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(52,58,23,.36);}
-  .cta svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+  .cta{text-align:center;margin-top:46px;}
+  .cta-title{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:var(--olive);font-size:1.5rem;line-height:1.2;margin-bottom:6px;}
+  .cta-sub{color:var(--stone);font-size:1rem;line-height:1.5;max-width:440px;margin:0 auto 20px;}
+  .cta button{display:inline-flex;align-items:center;gap:11px;cursor:pointer;border:none;font-family:'Inter',sans-serif;font-weight:600;font-size:1.06rem;letter-spacing:.01em;color:#fff;
+    background:var(--olive);padding:17px 38px;border-radius:50px;box-shadow:0 12px 26px rgba(52,58,23,.28);transition:transform .2s ease, box-shadow .2s ease, background .2s ease;}
+  .cta button:hover{background:var(--olive-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(52,58,23,.36);}
+  .cta svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .cta-note{margin-top:12px;font-size:.9rem;color:var(--stone);}
 
   @media (max-width:760px){
     .rm-desktop{display:none;}
@@ -190,13 +192,19 @@
     </div>
 
     <div class="cta">
-      <a href="https://thekmcollectiveteam.com/listing" target="_top">Start Your Home Search
-        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-      </a>
+      <p class="cta-title">Want more details?</p>
+      <p class="cta-sub">Get the entire home-buying process in one place &mdash; plus budgeting tips and the mistakes to avoid.</p>
+      <button type="button" id="rmGuideBtn">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Download the Free Buyer&rsquo;s Guide
+      </button>
+      <p class="cta-note">Free PDF &middot; Instant download</p>
     </div>
   </div>
 
 <script>
+  var rmBtn=document.getElementById('rmGuideBtn');
+  if(rmBtn){ rmBtn.addEventListener('click', function(){ if(window.parent){ window.parent.postMessage({kmOpenGuide:true},'*'); } }); }
   function postHeight(){ var h=Math.ceil(document.documentElement.getBoundingClientRect().height); if(window.parent){ window.parent.postMessage({kmRoadmapHeight:h},'*'); } }
   window.addEventListener('load', postHeight);
   if('ResizeObserver' in window){ new ResizeObserver(postHeight).observe(document.body); }
