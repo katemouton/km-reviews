@@ -80,9 +80,14 @@
   .cta{text-align:center;margin-top:46px;}
   .cta-title{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:var(--olive);font-size:1.5rem;line-height:1.2;margin-bottom:6px;}
   .cta-sub{color:var(--stone);font-size:1rem;line-height:1.5;max-width:440px;margin:0 auto 20px;}
-  .cta button{display:inline-flex;align-items:center;gap:11px;cursor:pointer;border:none;font-family:'Inter',sans-serif;font-weight:600;font-size:1.06rem;letter-spacing:.01em;color:#fff;
+  .cta button{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:11px;cursor:pointer;border:none;font-family:'Inter',sans-serif;font-weight:600;font-size:1.06rem;letter-spacing:.01em;color:#fff;
     background:var(--olive);padding:17px 38px;border-radius:50px;box-shadow:0 12px 26px rgba(52,58,23,.28);transition:transform .2s ease, box-shadow .2s ease, background .2s ease;}
+  .cta button::before{content:"";position:absolute;top:0;left:-160%;width:55%;height:100%;pointer-events:none;
+    background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.15) 35%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.15) 65%, transparent 100%);
+    transform:skewX(-22deg);animation:kmShine 3.4s ease-in-out infinite;}
+  @keyframes kmShine{0%{left:-160%;}55%{left:160%;}100%{left:160%;}}
   .cta button:hover{background:var(--olive-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(52,58,23,.36);}
+  @media (prefers-reduced-motion:reduce){.cta button::before{animation:none;}}
   .cta svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
   .cta-note{margin-top:12px;font-size:.9rem;color:var(--stone);}
 
