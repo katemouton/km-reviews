@@ -57,7 +57,7 @@
   .km-guide-btn svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
   .km-guide-note{margin-top:12px;font-size:.92rem;color:var(--stone);}
 
-  .km-overlay{position:fixed;inset:0;background:rgba(28,32,18,.55);display:none;align-items:center;justify-content:center;padding:24px;z-index:2147483000;}
+  .km-overlay{--olive:#4B5320;--olive-deep:#343A17;--olive-mid:#5A6326;--gold:#B08D57;--gold-bright:#DCC08C;--cream:#F4ECDD;--warm-white:#FBFAF7;--charcoal:#1F2A44;--stone:#6B7280;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;position:fixed;inset:0;background:rgba(28,32,18,.55);display:none;align-items:center;justify-content:center;padding:24px;z-index:2147483000;}
   .km-overlay.open{display:flex;animation:kmFade .25s ease;}
   @keyframes kmFade{from{opacity:0;}to{opacity:1;}}
   .km-modal{position:relative;width:100%;max-width:440px;max-height:92vh;overflow-y:auto;background:var(--warm-white);border-radius:22px;padding:36px 34px 30px;box-shadow:0 30px 80px rgba(20,24,12,.45);border:1px solid rgba(176,141,87,.35);animation:kmPop .28s cubic-bezier(.2,.8,.2,1);}
@@ -99,7 +99,7 @@
   var consent=document.getElementById('kmConsent');
   var consentRow=document.getElementById('kmConsentRow');
 
-  function openModal(){overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');formWrap.style.display='block';successWrap.style.display='none';submitBtn.disabled=false;submitBtn.textContent='Send Me the Guide';}
+  function openModal(){if(overlay.parentNode!==document.body){document.body.appendChild(overlay);}overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');formWrap.style.display='block';successWrap.style.display='none';submitBtn.disabled=false;submitBtn.textContent='Send Me the Guide';}
   function closeModal(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');}
   function showSuccess(){formWrap.style.display='none';successWrap.style.display='block';}
 
