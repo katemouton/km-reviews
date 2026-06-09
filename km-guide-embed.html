@@ -32,8 +32,16 @@
             <label for="kmPhone">Phone</label>
             <input type="tel" id="kmPhone" autocomplete="tel" placeholder="(337) 000-0000" required />
           </div>
+
+          <label class="km-consent" id="kmConsentRow">
+            <input type="checkbox" id="kmConsent" />
+            <span>By checking this box and clicking &ldquo;Send Me the Guide,&rdquo; I agree to the
+              <a href="https://thekmcollectiveteam.com/site/privacy-terms#privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and
+              <a href="https://thekmcollectiveteam.com/site/privacy-terms#terms-of-service" target="_blank" rel="noopener">Terms of Service</a>,
+              and consent to receive marketing communications about real estate services via email, phone call, and/or text message (including automated technology) from eXp Realty&reg; and its agents at the number and email I provided. Consent is not a condition of purchase; message &amp; data rates may apply; opt out anytime.</span>
+          </label>
+
           <button type="submit" class="km-submit" id="kmSubmit">Send Me the Guide</button>
-          <p class="km-fine">By submitting, you agree to be contacted by The KM Collective Team about your home search. No spam, ever.</p>
         </form>
       </div>
 
@@ -60,25 +68,31 @@
   .km-overlay{position:fixed;inset:0;background:rgba(28,32,18,.55);display:none;align-items:center;justify-content:center;padding:24px;z-index:2147483000;}
   .km-overlay.open{display:flex;animation:kmFade .25s ease;}
   @keyframes kmFade{from{opacity:0;}to{opacity:1;}}
-  .km-modal{position:relative;width:100%;max-width:440px;background:var(--warm-white);border-radius:22px;padding:38px 36px 32px;box-shadow:0 30px 80px rgba(20,24,12,.45);border:1px solid rgba(176,141,87,.35);animation:kmPop .28s cubic-bezier(.2,.8,.2,1);}
+  .km-modal{position:relative;width:100%;max-width:440px;max-height:92vh;overflow-y:auto;background:var(--warm-white);border-radius:22px;padding:36px 34px 30px;box-shadow:0 30px 80px rgba(20,24,12,.45);border:1px solid rgba(176,141,87,.35);animation:kmPop .28s cubic-bezier(.2,.8,.2,1);}
   @keyframes kmPop{from{opacity:0;transform:translateY(16px) scale(.97);}to{opacity:1;transform:none;}}
   .km-modal::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;border-radius:22px 22px 0 0;background:linear-gradient(90deg,var(--gold-bright),var(--gold) 50%,var(--olive-mid));}
-  .km-close{position:absolute;top:16px;right:18px;width:34px;height:34px;border:none;background:transparent;cursor:pointer;color:var(--stone);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+  .km-close{position:absolute;top:14px;right:16px;width:34px;height:34px;border:none;background:transparent;cursor:pointer;color:var(--stone);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .15s;z-index:2;}
   .km-close:hover{background:rgba(0,0,0,.06);color:var(--charcoal);}
   .km-close svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;}
   .km-lockup{text-align:center;letter-spacing:.22em;text-transform:uppercase;font-size:.66rem;font-weight:600;color:var(--gold);margin:0 0 6px;}
   .km-eyebrow{text-align:center;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;font-weight:600;color:var(--gold);margin:0 0 10px;}
-  .km-title{font-family:'Playfair Display',Georgia,serif;font-weight:600;text-align:center;color:var(--olive);font-size:1.74rem;line-height:1.15;margin:0;}
-  .km-sub{text-align:center;color:var(--stone);font-size:.98rem;line-height:1.5;margin:10px auto 24px;max-width:330px;}
-  .km-field{margin-bottom:14px;}
+  .km-title{font-family:'Playfair Display',Georgia,serif;font-weight:600;text-align:center;color:var(--olive);font-size:1.66rem;line-height:1.15;margin:0;}
+  .km-sub{text-align:center;color:var(--stone);font-size:.96rem;line-height:1.5;margin:9px auto 20px;max-width:330px;}
+  .km-field{margin-bottom:13px;}
   .km-field label{display:block;font-size:.8rem;font-weight:600;color:var(--olive-deep);margin-bottom:5px;letter-spacing:.02em;text-align:left;}
-  .km-field input{width:100%;font-family:inherit;font-size:1rem;color:var(--charcoal);padding:13px 15px;border:1.5px solid rgba(75,83,32,.22);border-radius:11px;background:#fff;transition:border .15s,box-shadow .15s;}
+  .km-field input{width:100%;font-family:inherit;font-size:1rem;color:var(--charcoal);padding:12px 15px;border:1.5px solid rgba(75,83,32,.22);border-radius:11px;background:#fff;transition:border .15s,box-shadow .15s;}
   .km-field input:focus{outline:none;border-color:var(--olive);box-shadow:0 0 0 3px rgba(75,83,32,.12);}
   .km-field input::placeholder{color:#b3b0a4;}
-  .km-submit{width:100%;margin-top:8px;cursor:pointer;border:none;color:#fff;background:var(--olive);font-family:inherit;font-weight:600;font-size:1.05rem;padding:15px;border-radius:12px;box-shadow:0 8px 22px rgba(52,58,23,.26);transition:background .2s,transform .15s;}
+  .km-consent{display:flex;gap:9px;align-items:flex-start;margin:14px 0 4px;text-align:left;cursor:pointer;}
+  .km-consent input{flex:0 0 auto;width:17px;height:17px;margin-top:2px;accent-color:var(--olive);cursor:pointer;}
+  .km-consent span{font-size:.7rem;line-height:1.4;color:var(--stone);}
+  .km-consent a{color:var(--olive);text-decoration:underline;}
+  .km-consent.km-need{animation:kmShake .4s;}
+  .km-consent.km-need span{color:#9a3324;}
+  @keyframes kmShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-4px);}75%{transform:translateX(4px);}}
+  .km-submit{width:100%;margin-top:14px;cursor:pointer;border:none;color:#fff;background:var(--olive);font-family:inherit;font-weight:600;font-size:1.05rem;padding:15px;border-radius:12px;box-shadow:0 8px 22px rgba(52,58,23,.26);transition:background .2s,transform .15s;}
   .km-submit:hover{background:var(--olive-deep);transform:translateY(-1px);}
   .km-submit[disabled]{opacity:.7;cursor:default;transform:none;}
-  .km-fine{text-align:center;font-size:.74rem;color:var(--stone);line-height:1.45;margin-top:14px;}
   .km-check{width:64px;height:64px;border-radius:50%;background:rgba(75,83,32,.12);display:flex;align-items:center;justify-content:center;margin:6px auto 16px;}
   .km-check svg{width:34px;height:34px;stroke:var(--olive);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
 </style>
@@ -90,6 +104,8 @@
   var formWrap=document.getElementById('kmFormWrap');
   var successWrap=document.getElementById('kmSuccessWrap');
   var submitBtn=document.getElementById('kmSubmit');
+  var consent=document.getElementById('kmConsent');
+  var consentRow=document.getElementById('kmConsentRow');
 
   function openModal(){overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');formWrap.style.display='block';successWrap.style.display='none';submitBtn.disabled=false;submitBtn.textContent='Send Me the Guide';}
   function closeModal(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');}
@@ -100,6 +116,7 @@
   document.getElementById('kmDone').addEventListener('click',closeModal);
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))closeModal();});
+  consent.addEventListener('change',function(){consentRow.classList.remove('km-need');});
 
   function setNativeValue(el,value){
     try{var proto=el.tagName==='TEXTAREA'?window.HTMLTextAreaElement.prototype:window.HTMLInputElement.prototype;
@@ -110,9 +127,11 @@
     try{var a=document.createElement('a');a.href=PDF_URL;a.target='_blank';a.rel='noopener';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(function(){a.remove();},2000);}
     catch(e){try{window.open(PDF_URL,'_blank');}catch(e2){}}
   }
-  function submitNativeForm(name,email,phone){
+  function submitEnabled(form){var rb=form.querySelector('button.submit');return rb && !rb.disabled && !/submit-disabled/.test(rb.className);}
+
+  function captureLead(name,email,phone){
     var form=document.querySelector('.md-form .info-form2')||document.querySelector('.md-form form')||document.querySelector('.md-form');
-    if(!form)return false;
+    if(!form)return;
     var fn=form.querySelector('input[name=fullname]');
     var ph=form.querySelector('input[name=phone]');
     var em=form.querySelector('input[name=email]');
@@ -122,12 +141,17 @@
     if(em)setNativeValue(em,email);
     if(q)setNativeValue(q,"Requested the free Buyer's Guide from the home page road map.");
     setTimeout(function(){
-      var rb=form.querySelector('button.submit');
-      if(rb){try{rb.disabled=false;rb.classList.remove('submit-disabled');}catch(e){}}
-      [rb, form.querySelector('.submit-box'), form.querySelector('.submit-content')].forEach(function(b){if(b){try{b.click();}catch(e){}}});
-      try{form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));}catch(e){}
-    },550);
-    return true;
+      if(!submitEnabled(form)){
+        var box=form.querySelector('.check-box-container')||form.querySelector('.checkbox-li')||document.querySelector('.md-form .check-box-container')||document.querySelector('.md-form .tcpa-consent');
+        if(box){try{box.click();}catch(e){}}
+      }
+      setTimeout(function(){
+        var rb=form.querySelector('button.submit');
+        if(submitEnabled(form) && rb){try{rb.click();}catch(e){}}
+        deliverPdf();
+        showSuccess();
+      },450);
+    },450);
   }
 
   document.getElementById('kmForm').addEventListener('submit',function(e){
@@ -136,10 +160,9 @@
     var email=document.getElementById('kmEmail').value.trim();
     var phone=document.getElementById('kmPhone').value.trim();
     if(!name||!email||!phone)return;
+    if(!consent.checked){consentRow.classList.add('km-need');consent.focus();return;}
     submitBtn.disabled=true;submitBtn.textContent='Sending…';
-    deliverPdf();
-    submitNativeForm(name,email,phone);
-    setTimeout(showSuccess,650);
+    captureLead(name,email,phone);
   });
 })();
 </script>
