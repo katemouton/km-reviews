@@ -42,6 +42,7 @@
   .marker{transition:transform .25s ease;transform-box:fill-box;transform-origin:center;}
   .marker:hover{transform:scale(1.06);}
   .startcap{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.22em;font-size:14px;fill:var(--gold);text-transform:uppercase;}
+  .starttag{font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.18em;font-size:12px;fill:var(--olive);}
 
   /* ---------- MOBILE STACKED ROAD ---------- */
   .rm-mobile{display:none;margin:30px auto 0;max-width:460px;position:relative;padding-left:8px;}
@@ -94,21 +95,26 @@
         <path class="road-base" d="M 30 390 L 120 390 C 224 390 224 210 328 210 C 432 210 432 390 536 390 C 640 390 640 210 744 210 C 848 210 848 390 952 390 C 1056 390 1056 210 1160 210 L 1250 210"/>
         <path class="road-line" d="M 30 390 L 120 390 C 224 390 224 210 328 210 C 432 210 432 390 536 390 C 640 390 640 210 744 210 C 848 210 848 390 952 390 C 1056 390 1056 210 1160 210 L 1250 210"/>
 
-        <text class="startcap" x="74" y="360" text-anchor="middle">Start Here</text>
+        <!-- Start Here tag -->
+        <g>
+          <rect x="20" y="316" width="122" height="32" rx="16" fill="#FBFAF7" stroke="#B08D57" stroke-width="2"/>
+          <text class="starttag" x="81" y="337" text-anchor="middle">START HERE</text>
+          <line x1="81" y1="348" x2="81" y2="384" stroke="#B08D57" stroke-width="2" stroke-dasharray="3 4"/>
+        </g>
 
         <!-- STOP 1 (trough, label below) -->
         <line class="connector" x1="120" y1="426" x2="120" y2="440"/>
-        <text class="mk-title" x="120" y="468" text-anchor="middle">Get Pre-Approved</text>
+        <text class="mk-title" x="120" y="468" text-anchor="middle">Meet Your Agent</text>
         <foreignObject x="20" y="480" width="200" height="90">
-          <div xmlns="http://www.w3.org/1999/xhtml" class="mk-desc">Know your budget and make your offer stronger from day one.</div>
+          <div xmlns="http://www.w3.org/1999/xhtml" class="mk-desc">We map out your goals, must-haves, and timeline together.</div>
         </foreignObject>
         <g class="marker"><circle class="badge" cx="120" cy="390" r="34" filter="url(#soft)"/><text class="mk-num" x="120" y="390" text-anchor="middle" dominant-baseline="central">1</text></g>
 
         <!-- STOP 2 (crest, label above) -->
         <line class="connector" x1="328" y1="174" x2="328" y2="160"/>
-        <text class="mk-title" x="328" y="98" text-anchor="middle">Meet Your Agent</text>
+        <text class="mk-title" x="328" y="98" text-anchor="middle">Get Pre-Approved</text>
         <foreignObject x="228" y="108" width="200" height="62">
-          <div xmlns="http://www.w3.org/1999/xhtml" class="mk-desc">We map out your goals, must-haves, and timeline together.</div>
+          <div xmlns="http://www.w3.org/1999/xhtml" class="mk-desc">Know your budget and make your offer stronger from day one.</div>
         </foreignObject>
         <g class="marker"><circle class="badge" cx="328" cy="210" r="34" filter="url(#soft)"/><text class="mk-num" x="328" y="210" text-anchor="middle" dominant-baseline="central">2</text></g>
 
@@ -149,8 +155,8 @@
     <!-- ===================== MOBILE ROAD ===================== -->
     <div class="rm-mobile">
       <div class="line"></div>
-      <div class="step"><div class="badge-m">1</div><div class="step-body"><h3>Get Pre-Approved</h3><p>Know your budget and make your offer stronger from day one.</p></div></div>
-      <div class="step"><div class="badge-m">2</div><div class="step-body"><h3>Meet Your Agent</h3><p>We map out your goals, must-haves, and timeline together.</p></div></div>
+      <div class="step"><div class="badge-m">1</div><div class="step-body"><h3>Meet Your Agent</h3><p>We map out your goals, must-haves, and timeline together.</p></div></div>
+      <div class="step"><div class="badge-m">2</div><div class="step-body"><h3>Get Pre-Approved</h3><p>Know your budget and make your offer stronger from day one.</p></div></div>
       <div class="step"><div class="badge-m">3</div><div class="step-body"><h3>Tour Homes</h3><p>Explore the best listings across Acadiana &amp; Baton Rouge.</p></div></div>
       <div class="step"><div class="badge-m">4</div><div class="step-body"><h3>Make an Offer</h3><p>Craft a smart, competitive offer with expert guidance.</p></div></div>
       <div class="step"><div class="badge-m">5</div><div class="step-body"><h3>Under Contract</h3><p>Inspections, appraisal, and negotiations &mdash; handled for you.</p></div></div>
