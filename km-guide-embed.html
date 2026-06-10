@@ -122,8 +122,9 @@
   function submitEnabled(form){var rb=form.querySelector('button.submit');return rb && !rb.disabled && !/submit-disabled/.test(rb.className);}
 
   function captureLead(name,email,phone){
-    var form=document.querySelector('.md-form .info-form2')||document.querySelector('.md-form form')||document.querySelector('.md-form');
-    if(!form)return;
+    var md=document.querySelector('.md-form[data-uuid="c1057965-319b-4abe-ab8a-daf730b98b27"]')||document.querySelector('.md-form');
+    if(!md)return;
+    var form=md.querySelector('.info-form2')||md.querySelector('form')||md;
     var fn=form.querySelector('input[name=fullname]');
     var ph=form.querySelector('input[name=phone]');
     var em=form.querySelector('input[name=email]');
@@ -134,7 +135,7 @@
     if(q)setNativeValue(q,"Requested the free Buyer's Guide from the home page road map.");
     setTimeout(function(){
       if(!submitEnabled(form)){
-        var box=form.querySelector('.check-box-container')||form.querySelector('.checkbox-li')||document.querySelector('.md-form .check-box-container')||document.querySelector('.md-form .tcpa-consent');
+        var box=form.querySelector('.check-box-container')||form.querySelector('.checkbox-li')||md.querySelector('.check-box-container')||md.querySelector('.tcpa-consent');
         if(box){try{box.click();}catch(e){}}
       }
       setTimeout(function(){

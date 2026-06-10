@@ -116,15 +116,21 @@
   function submitEnabled(form){var rb=form.querySelector('button.submit');return rb && !rb.disabled && !/submit-disabled/.test(rb.className);}
 
   function captureLead(name,email,phone){
-    var mdforms=document.querySelectorAll('.md-form');
-    var md=mdforms.length?mdforms[mdforms.length-1]:null;
+    var md=document.querySelector('.md-form[data-uuid="237d5ef5-5143-496e-854d-5d86fb1a8114"]');
+    if(!md){var all=document.querySelectorAll('.md-form');md=all.length?all[all.length-1]:null;}
     if(!md)return;
     var form=md.querySelector('.info-form2')||md.querySelector('form')||md;
     var fn=form.querySelector('input[name=fullname]');
+    var first=form.querySelector('input[name=firstName],input[name=firstname]');
+    var last=form.querySelector('input[name=lastName],input[name=lastname]');
     var ph=form.querySelector('input[name=phone]');
     var em=form.querySelector('input[name=email]');
     var q=form.querySelector('textarea[name=question]');
+    var parts=name.trim().split(/\s+/);
+    var fnm=parts.shift()||name; var lnm=parts.join(' ')||fnm;
     if(fn)setNativeValue(fn,name);
+    if(first)setNativeValue(first,fnm);
+    if(last)setNativeValue(last,lnm);
     if(ph)setNativeValue(ph,phone);
     if(em)setNativeValue(em,email);
     if(q)setNativeValue(q,"Requested the free Seller's Guide from the home page road map.");
