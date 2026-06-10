@@ -1,0 +1,156 @@
+<div id="km-seller-root">
+  <div class="km-overlay" id="kmsOverlay" aria-hidden="true">
+    <div class="km-modal" role="dialog" aria-modal="true" aria-labelledby="kmsTitle">
+      <button type="button" class="km-close" id="kmsClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <div id="kmsFormWrap">
+        <p class="km-lockup">The KM Collective Team</p>
+        <p class="km-eyebrow">Free Download</p>
+        <h2 class="km-title" id="kmsTitle">Your Seller&rsquo;s Guide</h2>
+        <p class="km-sub">Tell us where to send it and your free Selling 101 guide is yours &mdash; the road map, pricing tips, and mistakes to avoid.</p>
+
+        <form id="kmsForm" novalidate>
+          <div class="km-field">
+            <label for="kmsName">Name</label>
+            <input type="text" id="kmsName" autocomplete="name" placeholder="First &amp; last name" required />
+          </div>
+          <div class="km-field">
+            <label for="kmsEmail">Email</label>
+            <input type="email" id="kmsEmail" autocomplete="email" placeholder="you@email.com" required />
+          </div>
+          <div class="km-field">
+            <label for="kmsPhone">Phone</label>
+            <input type="tel" id="kmsPhone" autocomplete="tel" placeholder="(337) 000-0000" required />
+          </div>
+
+          <label class="km-consent" id="kmsConsentRow">
+            <input type="checkbox" id="kmsConsent" />
+            <span>By checking this box and clicking &ldquo;Send Me the Guide,&rdquo; I agree to the
+              <a href="https://thekmcollectiveteam.com/site/privacy-terms#privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and
+              <a href="https://thekmcollectiveteam.com/site/privacy-terms#terms-of-service" target="_blank" rel="noopener">Terms of Service</a>,
+              and consent to receive marketing communications about real estate services via email, phone call, and/or text message (including automated technology) from eXp Realty&reg; and its agents at the number and email I provided. Consent is not a condition of purchase; message &amp; data rates may apply; opt out anytime.</span>
+          </label>
+
+          <button type="submit" class="km-submit" id="kmsSubmit">Send Me the Guide</button>
+        </form>
+      </div>
+
+      <div id="kmsSuccessWrap" style="display:none;">
+        <div class="km-check"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h2 class="km-title">Your guide is downloading!</h2>
+        <p class="km-sub">Check your downloads for your Seller&rsquo;s Guide. We&rsquo;ll be in touch soon &mdash; reach out anytime with questions.</p>
+        <button type="button" class="km-submit" id="kmsDone" style="max-width:200px;margin:6px auto 0;">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #km-seller-root{--olive:#4B5320;--olive-deep:#343A17;--olive-mid:#5A6326;--gold:#B08D57;--gold-bright:#DCC08C;--cream:#F4ECDD;--warm-white:#FBFAF7;--charcoal:#1F2A44;--stone:#6B7280;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  .md-guide, .md-form{position:absolute !important;left:-99999px !important;top:0 !important;width:1px !important;height:1px !important;max-height:1px !important;overflow:hidden !important;opacity:0 !important;pointer-events:none !important;}
+  #km-seller-root *{box-sizing:border-box;}
+  .km-overlay{--olive:#4B5320;--olive-deep:#343A17;--olive-mid:#5A6326;--gold:#B08D57;--gold-bright:#DCC08C;--cream:#F4ECDD;--warm-white:#FBFAF7;--charcoal:#1F2A44;--stone:#6B7280;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;position:fixed;inset:0;background:rgba(28,32,18,.55);display:none;align-items:center;justify-content:center;padding:24px;z-index:2147483000;}
+  .km-overlay.open{display:flex;animation:kmFade .25s ease;}
+  @keyframes kmFade{from{opacity:0;}to{opacity:1;}}
+  .km-modal{position:relative;width:100%;max-width:440px;max-height:92vh;overflow-y:auto;background:var(--warm-white);border-radius:22px;padding:36px 34px 30px;box-shadow:0 30px 80px rgba(20,24,12,.45);border:1px solid rgba(176,141,87,.35);animation:kmPop .28s cubic-bezier(.2,.8,.2,1);}
+  @keyframes kmPop{from{opacity:0;transform:translateY(16px) scale(.97);}to{opacity:1;transform:none;}}
+  .km-modal::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;border-radius:22px 22px 0 0;background:linear-gradient(90deg,var(--gold-bright),var(--gold) 50%,var(--olive-mid));}
+  .km-close{position:absolute;top:14px;right:16px;width:34px;height:34px;border:none;background:transparent;cursor:pointer;color:var(--stone);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .15s;z-index:2;}
+  .km-close:hover{background:rgba(0,0,0,.06);color:var(--charcoal);}
+  .km-close svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;}
+  .km-lockup{text-align:center;letter-spacing:.22em;text-transform:uppercase;font-size:.66rem;font-weight:600;color:var(--gold);margin:0 0 6px;}
+  .km-eyebrow{text-align:center;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;font-weight:600;color:var(--gold);margin:0 0 10px;}
+  .km-title{font-family:'Playfair Display',Georgia,serif;font-weight:600;text-align:center;color:var(--olive);font-size:1.66rem;line-height:1.15;margin:0;}
+  .km-sub{text-align:center;color:var(--stone);font-size:.96rem;line-height:1.5;margin:9px auto 20px;max-width:330px;}
+  .km-field{margin-bottom:13px;}
+  .km-field label{display:block;font-size:.8rem;font-weight:600;color:var(--olive-deep);margin-bottom:5px;letter-spacing:.02em;text-align:left;}
+  .km-field input{width:100%;font-family:inherit;font-size:1rem;color:var(--charcoal);padding:12px 15px;border:1.5px solid rgba(75,83,32,.22);border-radius:11px;background:#fff;transition:border .15s,box-shadow .15s;}
+  .km-field input:focus{outline:none;border-color:var(--olive);box-shadow:0 0 0 3px rgba(75,83,32,.12);}
+  .km-field input::placeholder{color:#b3b0a4;}
+  .km-consent{display:flex;gap:9px;align-items:flex-start;margin:14px 0 4px;text-align:left;cursor:pointer;}
+  .km-consent input{flex:0 0 auto;width:17px;height:17px;margin-top:2px;accent-color:var(--olive);cursor:pointer;}
+  .km-consent span{font-size:.7rem;line-height:1.4;color:var(--stone);}
+  .km-consent a{color:var(--olive);text-decoration:underline;}
+  .km-consent.km-need{animation:kmShake .4s;}
+  .km-consent.km-need span{color:#9a3324;}
+  @keyframes kmShake{0%,100%{transform:translateX(0);}25%{transform:translateX(-4px);}75%{transform:translateX(4px);}}
+  .km-submit{width:100%;margin-top:14px;cursor:pointer;border:none;color:#fff;background:var(--olive);font-family:inherit;font-weight:600;font-size:1.05rem;padding:15px;border-radius:12px;box-shadow:0 8px 22px rgba(52,58,23,.26);transition:background .2s,transform .15s;}
+  .km-submit:hover{background:var(--olive-deep);transform:translateY(-1px);}
+  .km-submit[disabled]{opacity:.7;cursor:default;transform:none;}
+  .km-check{width:64px;height:64px;border-radius:50%;background:rgba(75,83,32,.12);display:flex;align-items:center;justify-content:center;margin:6px auto 16px;}
+  .km-check svg{width:34px;height:34px;stroke:var(--olive);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+
+<script>
+(function(){
+  var PDF_URL="https://katemouton.github.io/km-reviews/The%20Sellers%20Guide.pdf";
+  var overlay=document.getElementById('kmsOverlay');
+  var formWrap=document.getElementById('kmsFormWrap');
+  var successWrap=document.getElementById('kmsSuccessWrap');
+  var submitBtn=document.getElementById('kmsSubmit');
+  var consent=document.getElementById('kmsConsent');
+  var consentRow=document.getElementById('kmsConsentRow');
+
+  function openModal(){if(overlay.parentNode!==document.body){document.body.appendChild(overlay);}overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');formWrap.style.display='block';successWrap.style.display='none';submitBtn.disabled=false;submitBtn.textContent='Send Me the Guide';}
+  function closeModal(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');}
+  function showSuccess(){formWrap.style.display='none';successWrap.style.display='block';}
+
+  window.addEventListener('message',function(e){ if(e&&e.data&&e.data.kmOpenSellerGuide){ openModal(); } });
+  document.getElementById('kmsClose').addEventListener('click',closeModal);
+  document.getElementById('kmsDone').addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))closeModal();});
+  consent.addEventListener('change',function(){consentRow.classList.remove('km-need');});
+
+  function setNativeValue(el,value){
+    try{var proto=el.tagName==='TEXTAREA'?window.HTMLTextAreaElement.prototype:window.HTMLInputElement.prototype;
+      var setter=Object.getOwnPropertyDescriptor(proto,'value').set;setter.call(el,value);}catch(e){el.value=value;}
+    ['input','change','keyup','blur'].forEach(function(ev){el.dispatchEvent(new Event(ev,{bubbles:true}));});
+  }
+  function deliverPdf(){
+    try{var a=document.createElement('a');a.href=PDF_URL;a.target='_blank';a.rel='noopener';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(function(){a.remove();},2000);}
+    catch(e){try{window.open(PDF_URL,'_blank');}catch(e2){}}
+  }
+  function submitEnabled(form){var rb=form.querySelector('button.submit');return rb && !rb.disabled && !/submit-disabled/.test(rb.className);}
+
+  function captureLead(name,email,phone){
+    var mdforms=document.querySelectorAll('.md-form');
+    var md=mdforms.length?mdforms[mdforms.length-1]:null;
+    if(!md)return;
+    var form=md.querySelector('.info-form2')||md.querySelector('form')||md;
+    var fn=form.querySelector('input[name=fullname]');
+    var ph=form.querySelector('input[name=phone]');
+    var em=form.querySelector('input[name=email]');
+    var q=form.querySelector('textarea[name=question]');
+    if(fn)setNativeValue(fn,name);
+    if(ph)setNativeValue(ph,phone);
+    if(em)setNativeValue(em,email);
+    if(q)setNativeValue(q,"Requested the free Seller's Guide from the home page road map.");
+    setTimeout(function(){
+      if(!submitEnabled(form)){
+        var box=form.querySelector('.check-box-container')||form.querySelector('.checkbox-li')||md.querySelector('.check-box-container')||md.querySelector('.tcpa-consent');
+        if(box){try{box.click();}catch(e){}}
+      }
+      setTimeout(function(){
+        var rb=form.querySelector('button.submit');
+        if(submitEnabled(form) && rb){try{rb.click();}catch(e){}}
+        deliverPdf();
+        showSuccess();
+      },450);
+    },450);
+  }
+
+  document.getElementById('kmsForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('kmsName').value.trim();
+    var email=document.getElementById('kmsEmail').value.trim();
+    var phone=document.getElementById('kmsPhone').value.trim();
+    if(!name||!email||!phone)return;
+    if(!consent.checked){consentRow.classList.add('km-need');consent.focus();return;}
+    submitBtn.disabled=true;submitBtn.textContent='Sending…';
+    captureLead(name,email,phone);
+  });
+})();
+</script>
