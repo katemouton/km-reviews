@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cash Offer Hero — The KM Collective Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{font-family:'Inter',sans-serif;overflow:hidden}
+  .stage{position:relative;width:100%;height:100vh;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#2c2f26}
+  .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(38,42,23,.5),rgba(38,42,23,.8))}
+  .ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(70px,16vw,230px);color:rgba(244,236,221,.07);white-space:nowrap;letter-spacing:.04em;pointer-events:none;z-index:1}
+  .inner{position:relative;z-index:3;padding:0 24px;max-width:780px}
+  .eyebrow{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#DCC08C;margin-bottom:18px}
+  h1{font-family:'Playfair Display',serif;font-weight:500;color:rgba(244,236,221,.96);font-size:clamp(38px,6vw,66px);line-height:1.08;letter-spacing:.01em}
+  h1 .g{color:#DCC08C}
+  .sub{font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:rgba(244,236,221,.85);margin:20px auto 30px;max-width:520px}
+  .btn{display:inline-block;font-size:16px;font-weight:500;color:#3a4019;background:#DCC08C;border:none;border-radius:9px;padding:16px 34px;cursor:pointer;text-decoration:none;transition:background .2s}
+  .btn:hover{background:#cbab73}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <img class="bg" src="https://cdn.chime.me/image/fs/sitebuild/2024424/1/original_4eb40b89-fff6-45be-90da-d2879b100bd1-jpg.webp" alt="Sell your home for cash with The KM Collective Team">
+    <div class="ov"></div>
+    <div class="ghost">CASH OFFER</div>
+    <div class="inner">
+      <p class="eyebrow">The KM Collective Team</p>
+      <h1>Your Home <span class="g">SOLD.</span> Guaranteed.</h1>
+      <p class="sub">Cash offers in 24 hours. Real investors competing. No repairs, no showings, no obligation.</p>
+      <a class="btn" id="cta" href="https://cashoffer.thekmcollectiveteam.com/r/zxGdBM" target="_top">Get My Cash Offer &rarr;</a>
+    </div>
+  </div>
+<script>
+  document.getElementById('cta').addEventListener('click',function(e){
+    try{ parent.postMessage({kmOpenCashOffer:true},'*'); e.preventDefault(); }catch(err){}
+  });
+</script>
+</body>
+</html>
