@@ -96,10 +96,12 @@
   .faq .item.open .q i{transform:rotate(45deg)}
   .faq .qa{font-size:13.5px;color:var(--stone);line-height:1.65;padding:0 18px;max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease}
   .faq .item.open .qa{max-height:240px;padding:12px 18px 16px}
-  /* faq ghost watermark */
-  .faqsec{position:relative;overflow:hidden}
+  /* faq repeating watermark band */
+  .faqsec{position:relative;overflow:hidden;padding-top:130px}
   .faqsec .wrap{position:relative;z-index:1}
-  .faqghost{position:absolute;top:6px;left:50%;transform:translateX(-50%);font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(86px,16vw,230px);color:rgba(75,83,32,.07);line-height:.9;letter-spacing:.06em;pointer-events:none;z-index:0;white-space:nowrap;margin:0}
+  .faqband{position:absolute;top:42px;left:0;width:100%;text-align:center;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(42px,7vw,82px);line-height:1;color:rgba(75,83,32,.10);white-space:nowrap;pointer-events:none;z-index:0;letter-spacing:.04em}
+  .faqband i{color:rgba(220,192,140,.7);font-family:'Inter',sans-serif;font-style:normal;font-size:.42em;vertical-align:middle;margin:0 .22em}
+  @media(max-width:860px){.faqsec{padding-top:96px}.faqband{top:30px}}
   /* final cta 3d */
   .finalsec{background:var(--deep);padding:54px 28px;position:relative;overflow:hidden}
   .sparkles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
@@ -257,7 +259,7 @@
 
   <!-- FAQ -->
   <div class="sec faqsec" style="background:var(--ww)">
-    <span class="faqghost" aria-hidden="true">FAQ</span>
+    <div class="faqband" aria-hidden="true">FAQ <i>&#10022;</i> FAQ <i>&#10022;</i> FAQ <i>&#10022;</i> FAQ <i>&#10022;</i> FAQ <i>&#10022;</i> FAQ <i>&#10022;</i> FAQ <i>&#10022;</i> FAQ</div>
     <div class="wrap">
       <div class="center"><span class="secnum">FAQ's</span><h2 class="h2" style="color:var(--olive)">All your answers in one place</h2></div>
       <div class="faq">
