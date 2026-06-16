@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cash Offer — The KM Collective Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<style>
+  :root{--olive:#4B5320;--deep:#343A17;--gold:#B08D57;--goldb:#DCC08C;--cream:#F4ECDD;--ww:#FBFAF7;--char:#2A2E22;--stone:#7c7869}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;color:var(--char);background:var(--ww)}
+  .sec{padding:54px 28px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .center{text-align:center}
+  .gingham{background:repeating-linear-gradient(0deg,rgba(176,141,87,.16) 0 18px,rgba(176,141,87,0) 18px 36px),repeating-linear-gradient(90deg,rgba(176,141,87,.16) 0 18px,rgba(176,141,87,0) 18px 36px),#F1E9D6}
+  .gingham-green{background:repeating-linear-gradient(0deg,rgba(75,83,32,.18) 0 18px,rgba(75,83,32,0) 18px 36px),repeating-linear-gradient(90deg,rgba(75,83,32,.18) 0 18px,rgba(75,83,32,0) 18px 36px),#EBEAD7}
+  .h2{font-family:'Playfair Display',serif;font-weight:600;font-size:32px;line-height:1.12}
+  .lead{font-size:15px;line-height:1.7;color:var(--stone)}
+  .secnum{font-size:11px;letter-spacing:.1em;color:var(--gold);font-weight:600;text-transform:uppercase;display:block;margin-bottom:5px}
+  /* buttons */
+  .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .btnsh{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:600;border:none;cursor:pointer;border-radius:15px;padding:18px 36px;background:#4B5320;color:var(--cream);box-shadow:0 12px 24px -8px rgba(52,58,23,.45);transition:transform .15s ease,box-shadow .15s ease;text-decoration:none}
+  .btnsh:hover{transform:translateY(-3px);box-shadow:0 18px 32px -8px rgba(52,58,23,.55)}
+  .btnsh i{color:var(--goldb);position:relative;z-index:2}
+  .btnsh span{position:relative;z-index:2}
+  .btnbig{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:13px;font-size:26px;font-weight:600;border:none;cursor:pointer;border-radius:20px;padding:28px 64px;background:#DCC08C;color:#343A17;box-shadow:0 20px 38px -8px rgba(0,0,0,.46);transition:transform .15s ease,box-shadow .15s ease;text-decoration:none}
+  .btnbig:hover{transform:translateY(-4px);box-shadow:0 26px 44px -8px rgba(0,0,0,.5)}
+  .btnsh::before,.btnbig::before{content:"";position:absolute;top:0;left:-160%;width:55%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:kmShine 3.6s ease-in-out infinite;z-index:1}
+  .btnbig span{position:relative;z-index:2}
+  @keyframes kmShine{0%{left:-160%}45%{left:175%}100%{left:175%}}
+  /* trust bar */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .t{background:#fff;border:1px solid rgba(75,83,32,.12);border-radius:14px;padding:24px 14px;text-align:center;font-size:13px;color:var(--olive);font-weight:500;line-height:1.4;box-shadow:0 6px 0 #e4dcc6,0 16px 26px -12px rgba(52,58,23,.32);transition:transform .2s ease,box-shadow .2s ease}
+  .t:hover{transform:translateY(-6px);box-shadow:0 6px 0 #e4dcc6,0 24px 34px -12px rgba(52,58,23,.4)}
+  .t i{font-size:30px;color:var(--gold);display:block;margin-bottom:10px}
+  /* steps */
+  .steps-h{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px}
+  .steph{background:#fff;border:1px solid rgba(75,83,32,.12);border-radius:14px;padding:22px 12px;text-align:center;box-shadow:0 6px 0 #dccfae,0 16px 26px -12px rgba(52,58,23,.34);transition:transform .2s ease,box-shadow .2s ease}
+  .steph:hover{transform:translateY(-7px);box-shadow:0 6px 0 #dccfae,0 26px 36px -12px rgba(52,58,23,.42)}
+  .steph .num{width:42px;height:42px;margin:0 auto 12px;border-radius:50%;background:var(--olive);color:var(--goldb);font-family:'Playfair Display',serif;font-size:19px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .steph i{color:var(--gold);font-size:22px}
+  .steph h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--olive);margin:8px 0 5px;line-height:1.2}
+  .steph p{font-size:12px;color:var(--stone);line-height:1.45}
+  /* calc */
+  .formula{background:#454d23;border:1px solid rgba(220,192,140,.45);border-radius:14px;padding:24px;text-align:center;margin-top:24px;box-shadow:0 7px 0 #20260e,0 20px 32px -12px rgba(0,0,0,.55);transition:transform .2s ease,box-shadow .2s ease}
+  .formula:hover{transform:translateY(-5px);box-shadow:0 7px 0 #20260e,0 28px 40px -12px rgba(0,0,0,.62)}
+  .formula .eq{font-family:'Playfair Display',serif;font-size:19px;color:var(--goldb);line-height:1.5}
+  .ex{background:#454d23;border-radius:12px;padding:20px 22px;margin-top:20px;font-size:14px;line-height:1.8;color:rgba(244,236,221,.92);box-shadow:0 6px 0 #20260e,0 18px 28px -12px rgba(0,0,0,.5);transition:transform .2s ease,box-shadow .2s ease}
+  .ex:hover{transform:translateY(-5px);box-shadow:0 6px 0 #20260e,0 26px 36px -12px rgba(0,0,0,.58)}
+  .ex b{color:var(--goldb)}
+  /* expect */
+  .expect{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+  .expect .e{display:flex;gap:11px;align-items:flex-start;font-size:14px;color:var(--char);line-height:1.55}
+  .expect .e i{color:var(--gold);font-size:20px;flex:0 0 auto}
+  .expect .e b{color:var(--olive)}
+  /* comparison */
+  .cmpwrap{margin-top:34px}
+  .cmpcard{border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(75,83,32,.16);box-shadow:0 8px 0 #e4dcc6,0 22px 32px -14px rgba(52,58,23,.33);transition:transform .25s ease,box-shadow .25s ease}
+  .cmpcard:hover{transform:translateY(-7px);box-shadow:0 8px 0 #e4dcc6,0 32px 42px -14px rgba(52,58,23,.4)}
+  .cmpgrid{display:grid;grid-template-columns:.82fr 1.08fr 1fr}
+  .cmpgrid>div{display:flex;flex-direction:column}
+  .head{min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;font-weight:600;font-size:13.5px;padding:10px 14px;line-height:1.25}
+  .cell{min-height:56px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;padding:8px 10px;border-top:1px solid rgba(75,83,32,.1)}
+  .col-lab .head{background:transparent}
+  .col-lab .cell{justify-content:flex-start;padding-left:20px;font-weight:600;background:var(--cream);color:var(--olive);border-top-color:rgba(75,83,32,.12)}
+  .col-km{background:#fbf6ec}
+  .col-km .head{background:var(--gold);color:#fff}
+  .col-km .cell{background:#fbf6ec;color:var(--olive);font-weight:600}
+  .col-trad .head{background:var(--deep);color:var(--cream)}
+  .col-trad .cell{background:#fff;color:var(--stone)}
+  .pill{background:rgba(255,255,255,.32);color:#fff;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:10px;font-weight:600}
+  /* who it's for */
+  .sit{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+  .sit .s{background:#fff;border:1px solid rgba(75,83,32,.12);border-radius:13px;padding:20px;font-size:13px;box-shadow:0 6px 0 #e4dcc6,0 16px 26px -12px rgba(52,58,23,.3);transition:transform .2s ease,box-shadow .2s ease}
+  .sit .s:hover{transform:translateY(-6px);box-shadow:0 6px 0 #e4dcc6,0 24px 34px -12px rgba(52,58,23,.4)}
+  .sit .s i{color:var(--gold);font-size:24px}
+  .sit .s b{display:block;color:var(--olive);font-family:'Playfair Display',serif;font-size:16px;margin:8px 0 4px}
+  .sit .s span{color:var(--stone);line-height:1.5}
+  /* reviews */
+  .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+  .rev{background:#fff;border:1px solid rgba(75,83,32,.12);border-radius:13px;padding:22px;box-shadow:0 6px 0 #d7cdb0,0 16px 26px -12px rgba(52,58,23,.36);transition:transform .2s ease,box-shadow .2s ease}
+  .rev:hover{transform:translateY(-6px);box-shadow:0 6px 0 #d7cdb0,0 24px 34px -12px rgba(52,58,23,.44)}
+  .stars{color:var(--gold);font-size:15px;letter-spacing:2px}
+  .rev p{font-size:13px;color:var(--char);line-height:1.6;margin:10px 0}
+  .rev .by{font-size:13px;color:var(--stone);font-weight:600}
+  .badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .badge{font-size:12px;color:var(--olive);background:rgba(255,255,255,.7);border:1px solid rgba(75,83,32,.25);border-radius:20px;padding:7px 16px;font-weight:500}
+  /* faq */
+  .faq{max-width:760px;margin:24px auto 0}
+  .faq .q{background:#fff;border:1px solid rgba(75,83,32,.14);border-radius:10px;padding:16px 18px;margin-top:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:14px}
+  .faq .q span{font-size:14.5px;font-weight:600;color:var(--olive)}
+  .faq .q i{color:var(--gold);flex:0 0 auto;transition:transform .2s ease}
+  .faq .item.open .q i{transform:rotate(45deg)}
+  .faq .qa{font-size:13.5px;color:var(--stone);line-height:1.65;padding:0 18px;max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease}
+  .faq .item.open .qa{max-height:240px;padding:12px 18px 16px}
+  /* final cta 3d */
+  .finalsec{background:var(--deep);padding:64px 28px}
+  .panel{max-width:680px;margin:0 auto;text-align:center;background:#4B5320;border:1px solid rgba(220,192,140,.4);border-radius:22px;padding:54px 38px;box-shadow:0 10px 0 #2b3113,0 30px 46px -14px rgba(0,0,0,.6);transition:transform .22s ease,box-shadow .22s ease}
+  .panel:hover{transform:translateY(-7px);box-shadow:0 10px 0 #2b3113,0 42px 56px -14px rgba(0,0,0,.66)}
+  .panel h2{font-family:'Playfair Display',serif;font-weight:600;font-size:38px;color:#fff;line-height:1.1}
+  .panel p.sub{color:rgba(244,236,221,.88);font-size:15px;margin:16px auto 0;max-width:470px;line-height:1.6}
+  .panel .call{color:rgba(244,236,221,.78);font-size:13.5px;margin-top:26px}
+  .panel .call b{color:var(--goldb)}
+  .panel .call a{color:var(--goldb);text-decoration:none}
+  /* responsive */
+  @media(max-width:860px){
+    .h2{font-size:26px}
+    .trust{grid-template-columns:repeat(2,1fr)}
+    .steps-h{grid-template-columns:repeat(2,1fr)}
+    .expect{grid-template-columns:1fr}
+    .sit{grid-template-columns:1fr}
+    .revs{grid-template-columns:1fr}
+    .cmpgrid{grid-template-columns:1fr;font-size:13px}
+    .col-lab{display:none}
+    .col-km .cell::before,.col-trad .cell::before{content:attr(data-l);display:block;font-size:11px;color:var(--stone);font-weight:500;margin-bottom:2px}
+    .col-km .cell,.col-trad .cell{flex-direction:column;min-height:64px}
+    .btnbig{font-size:21px;padding:22px 44px}
+    .panel h2{font-size:30px}
+  }
+  @media(max-width:480px){.trust,.steps-h{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+  <!-- TRUST BAR -->
+  <div class="sec" style="background:var(--cream)">
+    <div class="wrap trust">
+      <div class="t"><i class="ti ti-clock"></i>Cash offer in 24 hours</div>
+      <div class="t"><i class="ti ti-cash"></i>$0 fees · $0 closing costs</div>
+      <div class="t"><i class="ti ti-hammer"></i>No repairs or showings</div>
+      <div class="t"><i class="ti ti-map-pin"></i>Local Acadiana &amp; Baton Rouge team</div>
+    </div>
+  </div>
+
+  <!-- PROGRAM INTRO -->
+  <div class="sec center" style="background:var(--ww)">
+    <div class="wrap">
+      <span class="secnum">The KM Collective Team Cash Offer Program</span>
+      <h2 class="h2" style="color:var(--olive);max-width:560px;margin:6px auto 0">A real cash offer for your home — fast, fair, and on your terms.</h2>
+      <p class="lead" style="max-width:580px;margin:16px auto 0">Skip the repairs, showings, and uncertainty. We bring you genuine cash offers from our network of investors, walk you through the numbers, and let you choose the closing date. No pressure — just a clear offer, upfront.</p>
+      <div class="ctas">
+        <button class="btnsh" data-tally><i class="ti ti-cash"></i><span>Get My Fair Offer Now</span></button>
+        <a class="btnsh" href="tel:+13372984974" target="_top"><i class="ti ti-phone"></i><span>Call / Text Kate Directly</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="sec gingham">
+    <div class="wrap">
+      <div class="center"><span class="secnum">How It Works</span><h2 class="h2" style="color:var(--olive)">Getting your cash offer, step by step</h2><p class="lead" style="max-width:540px;margin:14px auto 0">From "just curious" to cash in hand — with Kate beside you the whole way.</p></div>
+      <div class="steps-h">
+        <div class="steph"><div class="num">1</div><i class="ti ti-home"></i><h3>Tell us about your home</h3><p>A few quick questions — about 60 seconds.</p></div>
+        <div class="steph"><div class="num">2</div><i class="ti ti-users"></i><h3>We line up offers</h3><p>Submitted to our vetted investor network.</p></div>
+        <div class="steph"><div class="num">3</div><i class="ti ti-cash"></i><h3>Offers in 24 hours</h3><p>Real cash offers — not estimates.</p></div>
+        <div class="steph"><div class="num">4</div><i class="ti ti-clipboard-check"></i><h3>Review together</h3><p>Kate walks you through every number.</p></div>
+        <div class="steph"><div class="num">5</div><i class="ti ti-key"></i><h3>Pick your date</h3><p>Close in ~2 weeks &amp; get paid.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW CALCULATED -->
+  <div class="sec" style="background:var(--deep)">
+    <div class="wrap">
+      <div class="center"><span class="secnum" style="color:var(--goldb)">Transparent by design</span><h2 class="h2" style="color:#fff">How your cash offer is calculated</h2><p class="lead" style="color:rgba(244,236,221,.8);max-width:520px;margin:14px auto 0">No gimmicks, no lowball surprises — you'll always see the math behind your number.</p></div>
+      <div class="formula"><div class="eq">Cash Offer = After-Repair Value − Repairs − Resale Costs − Investor Margin</div></div>
+      <div class="ex">Example: A renovated home like yours sells for <b>$320,000</b>. Repairs <b>$35K</b>, resale costs <b>~$32K</b>, investor margin <b>~$32K</b> → your cash offer ≈ <b>$221,000</b>, as-is, with $0 fees on your side. We walk you through every line.</div>
+    </div>
+  </div>
+
+  <!-- WHAT TO EXPECT -->
+  <div class="sec" style="background:var(--ww)">
+    <div class="wrap">
+      <div class="center"><span class="secnum">What to Expect</span><h2 class="h2" style="color:var(--olive)">What a cash sale looks like</h2></div>
+      <div class="expect">
+        <div class="e"><i class="ti ti-check"></i><span><b>A clear number</b> — no commissions, $0 closing costs on your side.</span></div>
+        <div class="e"><i class="ti ti-check"></i><span><b>As-is sale</b> — no repairs, no cleaning, no showings.</span></div>
+        <div class="e"><i class="ti ti-check"></i><span><b>Simple paperwork</b> — handled with a trusted local title company.</span></div>
+        <div class="e"><i class="ti ti-check"></i><span><b>You pick the date</b> — close in ~2 weeks or whenever you're ready.</span></div>
+        <div class="e"><i class="ti ti-check"></i><span><b>Payment your way</b> — wire or check, confirmed at closing.</span></div>
+        <div class="e"><i class="ti ti-check"></i><span><b>Zero obligation</b> — see your offer first, decide later.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON -->
+  <div class="sec" style="background:var(--cream)">
+    <div class="wrap">
+      <div class="center"><span class="secnum">Why a cash offer</span><h2 class="h2" style="color:var(--olive)">Cash offer vs. listing with an agent</h2></div>
+      <div class="cmpwrap"><div class="cmpcard"><div class="cmpgrid">
+        <div class="col-lab">
+          <div class="head"></div>
+          <div class="cell">Fees / commissions</div>
+          <div class="cell">Closing costs</div>
+          <div class="cell">Repairs</div>
+          <div class="cell">Showings</div>
+          <div class="cell">Timeline</div>
+        </div>
+        <div class="col-km">
+          <div class="head"><span class="pill">Best choice</span>Cash Offer · KM Collective Team</div>
+          <div class="cell" data-l="Fees / commissions">None</div>
+          <div class="cell" data-l="Closing costs">We cover them</div>
+          <div class="cell" data-l="Repairs">Zero — sold as-is</div>
+          <div class="cell" data-l="Showings">None</div>
+          <div class="cell" data-l="Timeline">7–14 days</div>
+        </div>
+        <div class="col-trad">
+          <div class="head">Traditional Listing</div>
+          <div class="cell" data-l="Fees / commissions">6% on average</div>
+          <div class="cell" data-l="Closing costs">~2% of sale price</div>
+          <div class="cell" data-l="Repairs">You fix first</div>
+          <div class="cell" data-l="Showings">Dozens of strangers</div>
+          <div class="cell" data-l="Timeline">60–90+ days</div>
+        </div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <div class="sec" style="background:var(--ww)">
+    <div class="wrap">
+      <div class="center"><span class="secnum">Who it's for</span><h2 class="h2" style="color:var(--olive)">Life happens — a cash offer can help</h2></div>
+      <div class="sit">
+        <div class="s"><i class="ti ti-truck"></i><b>Relocating</b><span>Moving on a deadline without juggling showings.</span></div>
+        <div class="s"><i class="ti ti-home-heart"></i><b>Inherited home</b><span>Probate &amp; clean-outs handled, on your timeline.</span></div>
+        <div class="s"><i class="ti ti-scale"></i><b>Divorce</b><span>One clear number, a firm date you both accept.</span></div>
+        <div class="s"><i class="ti ti-tools"></i><b>Home needs work</b><span>Sell as-is — skip repairs and contractor stress.</span></div>
+        <div class="s"><i class="ti ti-building"></i><b>Tired landlord</b><span>We'll take the house — tenants and all.</span></div>
+        <div class="s"><i class="ti ti-sun"></i><b>Downsizing</b><span>Simplify the move with zero pressure.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="sec gingham-green">
+    <div class="wrap">
+      <div class="center"><span class="secnum" style="color:var(--olive)">Proof</span><h2 class="h2" style="color:var(--olive)">Sellers love working with Kate</h2></div>
+      <div class="revs">
+        <div class="rev"><div class="stars">★★★★★</div><p>"Kate made selling our home effortless — clear numbers and no pressure."</p><div class="by">— Local Seller</div></div>
+        <div class="rev"><div class="stars">★★★★★</div><p>"We had a cash offer in a day and closed on our schedule. Incredible."</p><div class="by">— Acadiana Client</div></div>
+        <div class="rev"><div class="stars">★★★★★</div><p>"Professional, honest, and truly local. Highly recommend the team."</p><div class="by">— Baton Rouge Seller</div></div>
+      </div>
+      <div class="badges"><span class="badge">Brokered by eXp Realty</span><span class="badge">REALTOR® Assoc. of Acadiana</span><span class="badge">Greater Baton Rouge MLS</span></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec" style="background:var(--ww)">
+    <div class="wrap">
+      <div class="center"><span class="secnum">Questions</span><h2 class="h2" style="color:var(--olive)">All your answers in one place</h2></div>
+      <div class="faq">
+        <div class="item"><div class="q"><span>How do I know my cash offer is fair?</span><i class="ti ti-plus"></i></div><div class="qa">We show you the comps and the full math behind your number — after-repair value, repairs, resale costs, and margin — so you can decide with complete confidence. No black boxes.</div></div>
+        <div class="item"><div class="q"><span>Are there any fees or commissions?</span><i class="ti ti-plus"></i></div><div class="qa">No. With a cash offer there are $0 agent commissions and we cover the closing costs on your side. The number we present is the number you walk away with.</div></div>
+        <div class="item"><div class="q"><span>How fast can I close?</span><i class="ti ti-plus"></i></div><div class="qa">Most cash sales close in about 7–14 days, but you pick the date. Need more time to move? We'll work around your schedule.</div></div>
+        <div class="item"><div class="q"><span>Am I obligated to accept the offer?</span><i class="ti ti-plus"></i></div><div class="qa">Never. Getting your offer is completely free and no-obligation. Review it with Kate, take your time, and only move forward if it's right for you.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA (3D) -->
+  <div class="finalsec">
+    <div class="panel">
+      <span class="secnum" style="color:var(--goldb)">Ready when you are</span>
+      <h2>Get your cash offer now!</h2>
+      <p class="sub">No repairs, no showings, no obligation — just a real offer in 24 hours.</p>
+      <div style="margin-top:34px"><button class="btnbig" data-tally><span>Get My Cash Offer →</span></button></div>
+      <p class="call">Prefer to talk? Call or text Kate at <a href="tel:+13372984974" target="_top"><b>(337) 298-4974</b></a></p>
+    </div>
+  </div>
+
+<script>
+  // All Tally CTA buttons -> tell parent to open the Tally modal popup
+  document.querySelectorAll('[data-tally]').forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      try{ parent.postMessage({kmOpenCashOffer:true},'*'); }catch(err){}
+    });
+  });
+  // FAQ accordions
+  document.querySelectorAll('.faq .item').forEach(function(it){
+    it.querySelector('.q').addEventListener('click',function(){ it.classList.toggle('open'); setTimeout(postHeight,260); });
+  });
+  // Auto-height: tell parent how tall we are so the iframe can grow
+  function postHeight(){
+    var h=document.body.scrollHeight;
+    try{ parent.postMessage({kmCashBodyHeight:h},'*'); }catch(err){}
+  }
+  window.addEventListener('load',postHeight);
+  window.addEventListener('resize',postHeight);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(postHeight);}
+  setTimeout(postHeight,400);setTimeout(postHeight,1200);setTimeout(postHeight,2500);
+</script>
+</body>
+</html>
