@@ -90,12 +90,14 @@
   .badge{font-size:12px;color:var(--olive);background:rgba(255,255,255,.7);border:1px solid rgba(75,83,32,.25);border-radius:20px;padding:7px 16px;font-weight:500}
   /* faq */
   .faq{max-width:760px;margin:24px auto 0}
-  .faq .q{background:#fff;border:1px solid rgba(75,83,32,.14);border-radius:10px;padding:16px 18px;margin-top:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:14px}
+  .faq .item{background:#fff;border:1px solid rgba(75,83,32,.12);border-radius:12px;margin-top:16px;overflow:hidden;box-shadow:0 5px 0 #e4dcc6,0 14px 24px -12px rgba(52,58,23,.32);transition:transform .2s ease,box-shadow .2s ease}
+  .faq .item:hover{transform:translateY(-4px);box-shadow:0 5px 0 #e4dcc6,0 22px 32px -12px rgba(52,58,23,.42)}
+  .faq .q{background:transparent;border:none;border-radius:12px;padding:17px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:14px}
   .faq .q span{font-size:14.5px;font-weight:600;color:var(--olive)}
   .faq .q i{color:var(--gold);flex:0 0 auto;transition:transform .2s ease}
   .faq .item.open .q i{transform:rotate(45deg)}
-  .faq .qa{font-size:13.5px;color:var(--stone);line-height:1.65;padding:0 18px;max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease}
-  .faq .item.open .qa{max-height:240px;padding:12px 18px 16px}
+  .faq .qa{font-size:13.5px;color:var(--stone);line-height:1.65;padding:0 20px;max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease}
+  .faq .item.open .qa{max-height:240px;padding:12px 20px 16px}
   /* faq repeating watermark band */
   .faqsec{position:relative;overflow:hidden;padding-top:130px}
   .faqsec .wrap{position:relative;z-index:1}
