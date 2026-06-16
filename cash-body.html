@@ -97,7 +97,11 @@
   .faq .qa{font-size:13.5px;color:var(--stone);line-height:1.65;padding:0 18px;max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease}
   .faq .item.open .qa{max-height:240px;padding:12px 18px 16px}
   /* final cta 3d */
-  .finalsec{background:var(--deep);padding:64px 28px}
+  .finalsec{background:var(--deep);padding:64px 28px;position:relative;overflow:hidden}
+  .sparkles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+  .spark{position:absolute;border-radius:50%;background:rgba(220,192,140,.95);box-shadow:0 0 8px 1px rgba(220,192,140,.5);opacity:0;animation:kmSpark ease-in-out infinite;will-change:opacity,transform}
+  @keyframes kmSpark{0%{opacity:0;transform:translateY(8px) scale(.4)}50%{opacity:.55;transform:translateY(-3px) scale(1)}100%{opacity:0;transform:translateY(-14px) scale(.4)}}
+  .finalsec .panel{position:relative;z-index:1}
   .panel{max-width:680px;margin:0 auto;text-align:center;background:#4B5320;border:1px solid rgba(220,192,140,.4);border-radius:22px;padding:54px 38px;box-shadow:0 10px 0 #2b3113,0 30px 46px -14px rgba(0,0,0,.6);transition:transform .22s ease,box-shadow .22s ease}
   .panel:hover{transform:translateY(-7px);box-shadow:0 10px 0 #2b3113,0 42px 56px -14px rgba(0,0,0,.66)}
   .panel h2{font-family:'Playfair Display',serif;font-weight:600;font-size:38px;color:#fff;line-height:1.1}
@@ -262,6 +266,24 @@
 
   <!-- FINAL CTA (3D) -->
   <div class="finalsec">
+    <div class="sparkles" aria-hidden="true">
+      <span class="spark" style="left:6%;top:24%;width:5px;height:5px;animation-duration:6.5s;animation-delay:0s"></span>
+      <span class="spark" style="left:13%;top:62%;width:4px;height:4px;animation-duration:8s;animation-delay:1.2s"></span>
+      <span class="spark" style="left:19%;top:14%;width:6px;height:6px;animation-duration:7s;animation-delay:2.4s"></span>
+      <span class="spark" style="left:24%;top:80%;width:3px;height:3px;animation-duration:9s;animation-delay:0.6s"></span>
+      <span class="spark" style="left:31%;top:42%;width:5px;height:5px;animation-duration:6s;animation-delay:3.1s"></span>
+      <span class="spark" style="left:9%;top:46%;width:3px;height:3px;animation-duration:7.5s;animation-delay:4s"></span>
+      <span class="spark" style="left:44%;top:18%;width:4px;height:4px;animation-duration:8.5s;animation-delay:1.8s"></span>
+      <span class="spark" style="left:52%;top:84%;width:5px;height:5px;animation-duration:7s;animation-delay:5s"></span>
+      <span class="spark" style="left:60%;top:26%;width:3px;height:3px;animation-duration:6.5s;animation-delay:2.7s"></span>
+      <span class="spark" style="left:68%;top:72%;width:6px;height:6px;animation-duration:9s;animation-delay:0.3s"></span>
+      <span class="spark" style="left:76%;top:38%;width:4px;height:4px;animation-duration:7.5s;animation-delay:3.6s"></span>
+      <span class="spark" style="left:82%;top:16%;width:5px;height:5px;animation-duration:6s;animation-delay:4.6s"></span>
+      <span class="spark" style="left:88%;top:60%;width:4px;height:4px;animation-duration:8s;animation-delay:1.5s"></span>
+      <span class="spark" style="left:94%;top:30%;width:3px;height:3px;animation-duration:7s;animation-delay:5.5s"></span>
+      <span class="spark" style="left:91%;top:82%;width:5px;height:5px;animation-duration:8.5s;animation-delay:2.1s"></span>
+      <span class="spark" style="left:38%;top:88%;width:3px;height:3px;animation-duration:6.5s;animation-delay:6s"></span>
+    </div>
     <div class="panel">
       <span class="secnum" style="color:var(--goldb)">Ready when you are</span>
       <h2>Get your cash offer now!</h2>
