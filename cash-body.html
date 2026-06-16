@@ -65,13 +65,15 @@
   .head{min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;font-weight:600;font-size:13.5px;padding:10px 14px;line-height:1.25}
   .cell{min-height:56px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;padding:8px 10px;border-top:1px solid rgba(75,83,32,.1)}
   .col-lab .head{background:transparent}
-  .col-lab .cell{justify-content:flex-start;padding-left:20px;font-weight:600;background:var(--cream);color:var(--olive);border-top-color:rgba(75,83,32,.12)}
-  .col-km{background:#fbf6ec}
-  .col-km .head{background:var(--gold);color:#fff}
-  .col-km .cell{background:#fbf6ec;color:var(--olive);font-weight:600}
-  .col-trad .head{background:var(--deep);color:var(--cream)}
-  .col-trad .cell{background:#fff;color:var(--stone)}
-  .pill{background:rgba(255,255,255,.32);color:#fff;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:10px;font-weight:600}
+  .col-lab .cell{justify-content:flex-start;padding-left:20px;font-weight:600;background:#fbfaf7;color:var(--olive);border-top-color:rgba(75,83,32,.12)}
+  .col-km{background:#fff}
+  .col-km .head{background:#fff;color:var(--olive);border-bottom:3px solid var(--gold)}
+  .col-km .cell{background:#fff;color:var(--olive);font-weight:600}
+  .col-km .cell::before{content:"✓";color:#6f7a35;font-weight:700;margin-right:7px}
+  .col-trad .head{background:#fff;color:var(--stone);border-bottom:3px solid #d9d3c4}
+  .col-trad .cell{background:#fbfaf7;color:var(--stone)}
+  .col-trad .cell::before{content:"✕";color:#b8b09c;margin-right:7px}
+  .pill{background:var(--gold);color:#fff;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:10px;font-weight:600}
   /* who it's for */
   .sit{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
   .sit .s{background:#fff;border:1px solid rgba(75,83,32,.12);border-radius:13px;padding:20px;font-size:13px;box-shadow:0 6px 0 #e4dcc6,0 16px 26px -12px rgba(52,58,23,.3);transition:transform .2s ease,box-shadow .2s ease}
