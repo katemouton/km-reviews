@@ -19,8 +19,10 @@
   @media(max-width:680px){h1{white-space:normal;font-size:36px}}
   h1 .g{color:#DCC08C}
   .sub{font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:rgba(244,236,221,.85);margin:20px auto 30px;max-width:520px}
-  .btn{display:inline-block;font-size:16px;font-weight:500;color:#3a4019;background:#DCC08C;border:none;border-radius:9px;padding:16px 34px;cursor:pointer;text-decoration:none;transition:background .2s}
+  .btn{position:relative;overflow:hidden;display:inline-block;font-size:16px;font-weight:500;color:#3a4019;background:#DCC08C;border:none;border-radius:9px;padding:16px 34px;cursor:pointer;text-decoration:none;transition:background .2s}
   .btn:hover{background:#cbab73}
+  .btn::before{content:"";position:absolute;top:0;left:-160%;width:55%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:kmShine 3.6s ease-in-out infinite;pointer-events:none}
+  @keyframes kmShine{0%{left:-160%}45%{left:175%}100%{left:175%}}
 </style>
 </head>
 <body>
